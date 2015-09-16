@@ -1,0 +1,70 @@
+﻿<div class="row">
+    <div class="row">
+        <div class="col-md-6">
+
+            <ig-data-chart id="datachart1" data-source="dataChart1">
+                <axes>
+                    <axis name="NameAxis"
+                          type="categoryX"
+                          title="Grade"
+                          label="Grade"></axis>
+
+                    <axis name="NumberOfQuestionAxis"
+                          type="numericY"
+                          minimumvalue="0"
+                          title="Number of Questions"></axis>
+                </axes>
+                <series>
+                    <series name="July"
+                            type="column"
+                            is-highlighting-enabled="true"
+                            is-transition-in-enabled="true"
+                            x-axis="NameAxis"
+                            y-axis="NumberOfQuestionAxis"
+                            value-member-path="July">
+                    </series>
+                </series>
+            </ig-data-chart>
+        </div>
+        <div class="col-md-6">
+           
+                <ig-data-chart id="datachart2" data-source="dataChart">
+                    <axes>
+                        <axis name="NameAxis"
+                              type="categoryX"
+                              title="Subjects"
+                              label="Subject"></axis>
+
+                        <axis name="NumberOfQuestionAxis"
+                              type="numericY"
+                              minimumvalue="0"
+                              title="Number of Questions"></axis>
+                    </axes>
+                    <series>
+                        <series name="July"
+                                type="column"
+                                is-highlighting-enabled="true"
+                                is-transition-in-enabled="true"
+                                x-axis="NameAxis"
+                                y-axis="NumberOfQuestionAxis"
+                                value-member-path="July">
+                        </series>
+                        <!--<series name="2025Population"
+                        type="column"
+                        is-highlighting-enabled="true"
+                        is-transition-in-enabled="true"
+                        x-axis="NameAxis"
+                        y-axis="PopulationAxis"
+                        value-member-path="Pop2025">
+                </series>-->
+                    </series>
+                </ig-data-chart>
+            
+           
+            
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+﻿<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-3">
+        <img src="{{imageUrl}}" class="img-thumbnail col-lg-offset-1" width="200">
+        <p class="text-center">
+            {{profile.FullName}}<br />
+            <span ng-click="upload()" class="btn-link">Change Pic</span><br />
+            <span class="btn-link" ng-click="showpassworddiv()">Change Password</span>
+        </p>
+
+        <div class="row">
+            
+            <div class="col-md-10" ng-show="showpassworddivflag">
+                <form>
+                    <div id="name-group" class="form-group">
+                        <input type="password" ng-model="oldPass" class="form-control" placeholder="Current Password">
+                        <span class="help-block"></span>
+                    </div>
+                    <div id="name-group" class="form-group">
+                        <input type="password" ng-model="newPass" class="form-control" placeholder="New Password">
+                        <span class="help-block"></span>
+                    </div>
+                    <div id="name-group" class="form-group">
+                        <input type="password" ng-model="confirmPass" class="form-control" placeholder="New Password">
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div>
+                        <button class="btn btn-default" ng-click="updatepassword()">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </button>
+                        <button class="btn btn-default" ng-click="showpassworddiv()">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </form>
+                <span class="help-block">{{pwdChangeMsg}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        
+
+
+        <ul id="profileNav" class="nav nav-tabs">
+            <li class="active"><a href="javascript:void(0);" ng-click="testTab(0)">Basic Info</a></li>
+            <li><a href="javascript:void(0);" ng-click="testTab(1)">Questions</a></li>
+            <li><a href="javascript:void(0);" ng-click="testTab(2)">Answers</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="basicInfo" ng-show="basicInfo">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Name :</td>
+                        <td>{{profile.FullName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email : </td>
+                        <td>{{profile.Email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone : </td>
+                        <td>{{profile.PhoneNumber}}</td>
+                    </tr>
+                    <tr>
+                        <td>City : </td>
+                        <td>{{profile.CityName}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="questions" class="tab-pane fade in active" ng-show="questionsAsked">
+                    <table class="table table-striped table-bordered">
+                        <tr ng-repeat="q in questions | orderBy:'-CreatedDate'">
+                            <td>
+                                <span ng-click="navigatetoquestiondetails(q.Id)" class="btn-link">
+                                    {{q.Title}}
+                                </span>
+                                <span class="pull-right">{{q.CreatedDate| date:"MMM d, y 'at' h:mma"}}</span>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+            <div id="answers" class="tab-pane fade in active" ng-show="answersData">
+                    <table class="table table-striped table-bordered">
+                        <tr ng-repeat="a in answers | orderBy:'-CreatedDate'">
+                            <td>
+                                <span ng-click="navigatetoquestiondetails(a.QuestionId)" class="btn-link">
+                                    {{a.AnswerDetailPlainText}}
+                                </span>
+                                <span class="pull-right">{{a.CreatedDate| date:"MMM d, y 'at' h:mma"}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+    </div>
+
+</div>

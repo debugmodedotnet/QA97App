@@ -1,0 +1,108 @@
+﻿<div class="row signup">
+
+        <div class="col-md-4">
+            <div class="joinee">               
+                <span class="join"> Join QA97</span>           
+            </div>
+            <!--<div class="row">
+                <div class="col-md-3">
+                    <button class="btn btn-lg btn-info pull-left"><i class="fa fa-facebook-official fa-2x"></i></button>
+                </div>
+                <div class="col-md-3">
+                   
+                    <button class="btn btn-lg btn-info"><i class="fa fa-google-plus fa-2x"></i></button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-lg btn-info"><i class="fa fa-twitter fa-2x"></i></button>
+                </div>
+                <div class="col-md-3 pull-right">
+                    <button class="btn btn-lg btn-info"><i class="fa fa-linkedin fa-2x"></i></button>
+                </div>
+            </div>
+            
+            <div class="row hrContainer centerAlign">
+                <hr class="hrInline" align="left" />
+                <span class="hrtext">or </span>
+                <hr class="hrInline" align="right" />
+            </div>-->
+
+            <div class="row">
+                <form id="user-regn" name="adduser" novalidate>
+                    <!-- NAME -->
+                    <div id="name-group" class="form-group-lg">
+                        <label>Your full name</label>
+                        <input type="text"
+                               ng-required="true"
+                               name="name"
+                               ng-model="userfullName"
+                               class="form-control"
+                               ng-focus="clearerrormessage()"
+                               placeholder="Full Name">
+                        <span class="help-block"
+                              ng-show="adduser.name.$invalid && !adduser.name.$pristine">
+                            You name is required.
+                        </span>
+                        <span class="help-block">{{errormessagename}}</span>
+                        <!--<span class="help-block">{{errorMessageEmail}}<a class="btn-link" ng-show="emialloginlinkflag" href="/Login"> Login here</a> </span>-->
+                    </div>
+                    <div id="name-group" class="form-group-lg">
+                        <label>Your email address</label>
+                        <input type="email"
+                               ng-required="true"
+                               name="email"                               
+                               ng-model="useremail"
+                               class="form-control"
+                               ng-focus="clearerrormessage()"
+                               placeholder="Email">
+                        <span class="help-block"
+                              ng-show="adduser.email.$invalid && !adduser.email.$pristine">
+                            Enter valid Email
+                        </span>
+                        <span class="help-block">{{errorMessageEmail}}<a class="btn-link" ng-show="emialloginlinkflag" href="/Login"> Login here</a> </span>
+                    </div>
+                    <div id="name-group" class="form-group-lg">
+                        <label>Choose your password</label>
+                        <input type="password"
+                               ng-required="true"
+                               ng-model="userpassword"
+                               name="password"
+                               ng-minlength="6"
+                               ng-focus="clearerrormessage()"
+                               class="form-control "
+                               placeholder="Password atleast 6 character">
+                        <span class="help-block"
+                              ng-show="adduser.password.$invalid && !adduser.password.$pristine">
+                            Password should be atleast six character long
+                        </span>
+                        <span class="help-block">{{errormessagepassword}}</span>
+                    </div>
+                    <div ng-show="flagregisteruser" class="alert alert-danger fade in">
+                        <!--<a href="#" class="close" data-dismiss="alert">&times;</a>-->
+                        <strong>Ooops!</strong> A problem has been occurred adding you as User.
+                    </div>
+                    <div id="name-group" class="form-group-lg">
+                        <button class="register" type="submit"
+                                ng-click="AddUser()" class="form-control btn btn-info">
+                            Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <br/>
+            <div class="row">
+                <span class="create--account">By signing up, I agree to <a href="#">Terms </a> </span>   
+            </div>
+        </div>
+            <div class="row new--account">
+                <div class="alternate inline">Sign up with</div>
+                <button class="f--awesome btn btn-lg btn-info"><i class="fa fa-google"></i></i></button>
+
+                <button class="f--awesome btn btn-lg btn-info"><i class="fa fa-facebook"></i></button>
+
+                <button class="f--awesome btn btn-lg btn-info"><i class="fa fa-linkedin"></i></i></button>
+
+            </div>
+       
+    </div>
+</div>

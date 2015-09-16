@@ -1,0 +1,184 @@
+﻿
+
+<div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-7">
+        <button class="btn btn-info" ng-click="navigateToQuestion()">Ask a Question</button>
+    </div>
+
+    <div class="col-md-3">
+        <div class="input-group">
+
+            <input type="text" class="form-control" ng-model="qsearch" placeholder="type to search in questions" aria-describedby="sizing-addon1">
+            <span class="input-group-addon" id="sizing-addon1">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+</div>
+
+
+<br/>
+<br/>
+
+<div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-3">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{selectedSubject}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+                <li ng-repeat="a in subjects"><a ng-click="selectSubject(a.Name,a.Id)">{{a.Name}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{selectedClass}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+                <li ng-repeat="a in classes"><a ng-click="selectClass(a.Name,a.Id)">{{a.Name}}</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-info" ng-click="applyFilter()">Apply Filter</button>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-md-1"></div>
+
+
+    <div class="col-md-10">
+        <table class="table">
+            <tr ng-repeat="q in questions|filter:qsearch">
+                <td>
+
+                    <div class="row">
+                        <div class="pull-left">
+                            <div>
+                                <div>
+                                    <!--<span class="label label-info"> {{q.NumberOfAnswers}} answers</span>-->
+                                    <button class="btn btn-link btn-xs">
+                                        {{q.UserName}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="pull-right">
+                                {{q.CreatedDate| date:"MMM d, y 'at' h:mma"}}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <!--{{q.Title}}-->
+                        <div class="pull-left">
+                            <button ng-click="navigatetoquestiondetails(q.Id)" class="btn btn-link btn-lg">
+                                {{q.Title}}
+                            </button>
+                        </div>
+
+
+                    </div>
+                    <!--<div class="row">
+                        <div>
+                            {{q.Detail}}
+                        </div>
+                    </div>
+
+                    <br />-->
+
+                    <div class="row">
+                        <div class="pull-left">
+                            <div>
+                                <div>
+                                    <!--<span class="label label-info"> {{q.NumberOfAnswers}} answers</span>-->
+                                    <button class="btn btn-default btn-xs">
+                                        {{q.NumberOfAnswers}} answers
+                                    </button>
+                                    <!--<label class="label label-info">
+                                        {{q.NumberOfAnswers}} votes
+                                    </label>-->
+                                    <button class="btn btn-default btn-xs">
+                                        {{q.Score}} votes
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="pull-right">
+                                <div>
+                                    <!--<button class="btn btn-default btn-xs" ng-click="votequestionplus()">
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    </button>
+                                    <span>30</span>
+
+                                    <button class="btn btn-default btn-xs" ng-click="votequestionminus()">
+                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                    </button>-->
+                                    <!--<button class="btn btn-default btn-xs">
+                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                    </button>-->
+                                    <!-- Single button -->
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Share <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Facebook</a></li>
+                                            <li><a href="#">Twitter</a></li>
+                                            <li><a href="#">Email</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-1"></div>
+
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-info" ng-click="loadmorequestions()" ng-disabled="isLoadMoreButtonDisabled">Load More Questions</button>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    
+
+</div>

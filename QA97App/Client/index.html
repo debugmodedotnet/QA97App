@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+
+    <title>Professional Tutor</title>
+
+    <!--//Junaid CSS-->
+    <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />-->
+    <!--[if IE]>
+        <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+     <![endif]-->
+
+
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/infragistics.css" rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" />  
+       
+
+    <link href="../Content/Font-Awesome-master/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="../Content/font-awesome.css" rel="stylesheet" />
+   
+    <link href="../Content/textAngular.css" rel="stylesheet" />
+    <link href="../Content/angular-ui-switch.css" rel="stylesheet" />
+
+
+    <!--vendor scripts-->
+    <script src="../Scripts/jquery-1.9.1.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>   
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/angular-cookies.js"></script>
+    <script src="../Scripts/angular-ui/ui-bootstrap-tpls.js"></script> 
+    <script src="../Scripts/angular-local-storage.js"></script>
+    <script src="../Scripts/textAngular-rangy.min.js"></script>
+    <script src="../Scripts/textAngular-sanitize.min.js"></script>
+    <script src="../Scripts/textAngularSetup.js"></script>
+    <script src="../Scripts/angular-ui-switch.js"></script>
+    <script src="../Scripts/textAngular.js"></script>
+    <script src="../Scripts/ng-file-upload-shim.js"></script>
+    <script src="../Scripts/ng-file-upload.js"></script>
+    <script src="../Scripts/jspdf.debug.js"></script>
+
+    
+    <!--For IG Chart-->
+    <script src="../Scripts/modernizr-2.7.2.js"></script>    
+    <!--<script src="../Scripts/jquery-2.0.3.js"></script>-->
+    <script src="../Scripts/jquery-ui-1.10.3.js"></script>
+    <script src="../Scripts/infragistics.core.js"></script>
+    <script src="../Scripts/infragistics.dv.js"></script>
+    <script src="../Scripts/infragistics.lob.js"></script>
+    <script src="../Scripts/igniteui-angular.js"></script>
+
+    <!--application  scripts-->
+
+    <script src="/Client/services/teacherservice.js"></script>
+    <script src="/Client/login/login.js"></script>
+    <script src="/Client/askquestion/askquestion.js"></script>
+    <script src="/Client/register/register.js"></script>
+    <script src="/Client/questiondetails/questiondetails.js"></script>
+    <script src="/Client/listquestions/listquestions.js"></script>
+    <script src="/Client/user/user.js"></script>
+    <script src="schooladminhome/schooladminhome.js"></script>
+    
+    <script src="home.js"></script>
+</head>
+<body>
+
+
+
+    <div class="container container-fluid">
+
+        <header>
+                <nav role="navigation" class="navbar navbar-static-top" ng-controller="MenuController">
+                <div class="navbar-header">
+                    <div class="navbar-form navbar-nav navbar-left">
+                        <a href="#Home">
+                            <img src="views/logo.PNG" />
+                        </a>
+
+                    </div>
+
+                </div>
+                <!--<div class="navbar-form navbar-nav navbar-right">
+                    <a class="btn btn-info" href="#Delete">Search a Mentor</a>
+                </div>-->
+                <!--<div class="navbar-form navbar-nav navbar-right">
+                    <a class="btn btn-info" href="#Delete">Ask a Question</a>
+                </div>-->
+                <div class="navbar-form navbar-nav navbar-right">
+                    <a class="btn btn-info" ng-click="open('lg')">Join your School</a>
+                </div>
+                <!--<div class="navbar-form navbar-nav navbar-right">
+                    <a class="btn btn-default" ng-click="open('lg')">Ask Question</a>
+                </div>-->
+                <ul ng-hide="isLoggedIn" class="nav navbar-nav navbar-right">
+                    <li><a href="#register">Sign Up</a></li>
+                    <li><a href="#login">Sign In</a></li>
+                </ul>
+                <ul ng-show="isLoggedIn" class="nav navbar-nav navbar-right">
+                    <li><a ng-click="navigateToUserProfile()">Hello {{userName}}</a></li>
+                    <li><a ng-click="userLogOut()">Logout</a></li>
+                </ul>
+
+
+
+            </nav>
+        </header>
+
+        <div ng-view>
+
+        </div>
+
+     
+
+
+        <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title">Select School</h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{selectedSchool}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+                                <li ng-repeat="a in schools"><a ng-click="selectSchool(a.Name,a.Id)">{{a.Name}}</a></li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="password" placeholder="Enter School passcode" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                        <switch id="enabled" name="enabled" ng-model="enabled" class="wide" on="Admin" off="Regular"></switch>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-info" type="button" ng-click="ok()">GO</button>
+                <button class="btn btn-info" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+        </script>
+
+
+        <!--<nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#Register">About</a></li>
+                    <li><a href="#Update">Career</a></li>
+                    <li><a href="#Update">Press</a></li>
+                    <li><a href="#Update">Blog</a></li>
+                    <li><a href="#Update">ContactUs</a></li>
+                    <li><a href="#Update">Privacy & Terms</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#Register">Facebook</a></li>
+                    <li><a href="#Update">Twitter</a></li>
+                </ul>
+            </div>
+        </nav>-->
+    </div>
+</body>
+</html>
