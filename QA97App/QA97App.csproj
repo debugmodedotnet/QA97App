@@ -16,7 +16,7 @@
     <RootNamespace>QA97App</RootNamespace>
     <AssemblyName>QA97App</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -66,6 +66,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\qa97.svg" />
+    <Content Include="html\index.html" />
+    <Content Include="html\login.html" />
+    <Content Include="html\sign-up.html" />
+    <Content Include="images\bg.png" />
+    <Content Include="images\demo.jpg" />
+    <Content Include="images\image.png" />
+    <Content Include="images\logo-old.png" />
+    <Content Include="images\logo.png" />
     <Content Include="packages.config" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
@@ -349,6 +358,9 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Scripts\version.json" />
+    <Content Include="fonts\qa97.eot" />
+    <Content Include="fonts\qa97.ttf" />
+    <Content Include="fonts\qa97.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1692,6 +1704,8 @@
     <Content Include="Scripts\textAngular.js" />
     <Content Include="Scripts\textAngular.min.js" />
     <Content Include="Scripts\textAngularSetup.js" />
+    <Content Include="Style\awesome.css" />
+    <Content Include="Style\main.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1714,16 +1728,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>25818</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5901/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
