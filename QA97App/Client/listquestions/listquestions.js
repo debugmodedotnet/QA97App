@@ -48,7 +48,7 @@ listquestions.controller('ListQuestionsController', function ($scope, $location,
         //alert("Loading more questions");
 
         loadQuestions($scope.pageno, $scope.pagesize, $scope.gid, $scope.sid);
-
+        console.log($scope.questions);
     }
 
 

@@ -13,34 +13,35 @@ askquestion.config(['$routeProvider', function ($routeProvider) {
 
 askquestion.controller('AskQuestionController', function ($scope, $location, $rootScope, TeacherService) {
     
-    $rootScope.bodystyle = 'bodywithoutimage';
+   
     $scope.questiontitleerrormessage;
     $scope.questiondetailerrormessage;
     $scope.flagaddquestion = false;
     $scope.userid = undefined;
     $scope.questiontitle = $rootScope.qtitle;
-    $scope.subjectId = undefined;
-    $scope.selectedSubject = "Select Subject";
-    $scope.selectSubject = function (name, id) {
+    //$scope.subjectId = undefined;
+    //$scope.selectedSubject = "Select Subject";
+    //$scope.selectSubject = function (name, id) {
        
-        $scope.selectedSubject = name;
-        $scope.subjectId = id;
-    }
+    //    $scope.selectedSubject = name;
+    //    $scope.subjectId = id;
+    //}
 
-    $scope.selectedClass = "Select Class";
-    $scope.classId = undefined;
-    $scope.selectClass = function (name, id) {
+    //$scope.selectedClass = "Select Class";
+    //$scope.classId = undefined;
+    //$scope.selectClass = function (name, id) {
 
-        $scope.selectedClass = name;
-        $scope.classId = id;
-    }
+    //    $scope.selectedClass = name;
+    //    $scope.classId = id;
+    //}
     $scope.navigatetoquestiondetails = function (id) {
 
 
         $location.path('/questiondetails/' + id);
     }
 
-
+    $scope.selectedSubject = {};
+    $scope.selectedClass = {};
     $scope.classes = undefined;
     getClasses();
     function getClasses() {
@@ -101,8 +102,8 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
 
                     var questionToAsk = {
                         QuestionTitle: $scope.questiontitle,
-                        ClassId: $scope.classId,
-                        SubjectId: $scope.subjectId,
+                        ClassId: $scope.selectedClass.Id,
+                        SubjectId: $scope.selectedSubject.Id,
                         UserId: $rootScope.userName,
                         QuestionDetailRichText: $scope.questionDetailRichText,
                         QuestionDetailPlainText: $scope.htmlToPlaintext($scope.questionDetailRichText),
