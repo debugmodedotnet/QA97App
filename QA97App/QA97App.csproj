@@ -67,11 +67,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\qa97.svg" />
+    <Content Include="html\ask--expert.html" />
     <Content Include="html\index.html" />
     <Content Include="html\login.html" />
     <Content Include="html\sign-up.html" />
     <Content Include="images\bg.png" />
     <Content Include="images\demo.jpg" />
+    <Content Include="images\demo.png" />
+    <Content Include="images\homeBG.png" />
     <Content Include="images\image.png" />
     <Content Include="images\logo-old.png" />
     <Content Include="images\logo.png" />
@@ -1706,6 +1709,7 @@
     <Content Include="Scripts\textAngularSetup.js" />
     <Content Include="Style\awesome.css" />
     <Content Include="Style\main.css" />
+    <Content Include="Style\responsive.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

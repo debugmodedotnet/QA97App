@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 /* CSS Document */
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
@@ -14,34 +14,37 @@ img{ outline:none; border:none;}
 .clearfix:after{ clear:both; display:block; float:none; content:"";}
 select,input{ border:none; background:none; outline:none;}
 
-
 .main{ width:100%; display:block; margin-bottom:-45px; min-height:100%; position:relative;}
 .main:after{ content:""; clear:both; float:none; display:block; height:45px;}
+.main.homePageBG{ background:url(../images/homeBG.png) center center no-repeat; background-size:cover; background-attachment:fixed; }
 
 .container { display:block; width:100%; padding:25px;}
 .center{ width:100%; max-width:1280px; margin:0 auto;}
 
 
 /* top header style start here */
-.top-header{ width:100%; display:block; background:url(../images/bg.png) 0 0 no-repeat; background-size:cover; padding-bottom:27px;}
+.top-header{ width:100%; display:block; }
 
-header{ padding:27px 25px 0 25px ; width:100%; display:block; }
-header .site-logo{ float:left; width:127px;}
+header{ padding:17px; width:100%; display:block; position:fixed; top:0px; left:0px; background:#f0f0f0; border-bottom:1px solid #dfdfdf; z-index:9999;}
+header .site-logo{ float:left; width:108px;}
 header .site-logo img{ width:auto; height:auto; max-width:100%;}
-header .right-section{ float:right; width:auto;}
+header .right-section{ float:right; width:auto; margin-top:14px;}
 header .right-section li{ float:left; }
-header .right-section li a{ text-transform:uppercase; color:#c6538c; font-size:25px; display:block; padding:8px 24px; }
-header .right-section li a.join-school{ color:#fff; background:#c6538c; }
-header .right-section li a:hover { color:#fff; background:#c6538c;}
+header .right-section li a{ color:#4b4b4b; font-size:25px; display:block; padding:8px 24px 8px 54px; position:relative; }
+header .right-section li a i {position: absolute;left: 23px;top: 7px;color: #0097ff;font-size: 36px;}
+header .right-section li a.join-school{ color:#fff; background:#0097ff; padding:8px 24px; text-transform:uppercase;  }
+header .right-section li a:hover,header .right-section li a:hover i { color:#fff; background:#0097ff;}
+
+.top-header .blankDiv{ display:block; width:100%; height:111px; position:relative;}
 
 /* Search Section start here */
-.search-section{ text-align:center; width:100%; margin-top:27px; }
+.search-section{ text-align:center; width:100%; margin-top:46px; }
 .search-section .serchbox{ display:inline-block; width:100%; text-align:left; max-width:980px; }
-.search-section .serchbox .label{ font-size:25px; text-transform:uppercase; color:#c6538c; padding:0px 20px; height:65px; line-height:65px; float:left; border:1px solid #cdcdcd; border-right:none; background:#f0f0f0; }
-.search-section .custom-select{  float:left; border:1px solid #cdcdcd; border-right:none; max-width:731px; width:100%; background:#f0f0f0; position:relative;  } 
-.search-section .custom-select:after{     position: absolute;right: 0px;top: 0px;height: 63px;width: 65px;background: #f0f0f0;content: "\e605";font-family: qa97;text-align: center;line-height: 63px;font-size: 31px; color:#424242; pointer-events:none;}
-.search-section .custom-select select{ width:100%; height:63px; padding:0 20px; font-size:19px; color:#424242; appearance:none; -webkit-appearance:none; -moz-appearance:none; -ms-appearance:none;-o-appearance:none;}
-.search-section .btn{ width:65px; height:65px; color:#fff; font-size:25px; line-height:65px; text-align:center; background:#c6538c; text-transform:capitalize; cursor:pointer;}
+.search-section .serchbox .label{ font-size:25px; text-transform:uppercase; color:#000; padding:0px 20px; height:65px; line-height:65px; float:left; border:1px solid #cdcdcd; border-right:none; background:#f0f0f0; }
+.search-section .custom-select{  float:left; border:1px solid #cdcdcd;  border-right:none; max-width:731px; width:100%; background:#f0f0f0; position:relative;  } 
+.search-section .custom-select:after{     position: absolute;right: 0px;top: 0px;height: 63px;width: 65px;background: #f0f0f0;content: "\e605";font-family: qa97;text-align: center;line-height: 63px;font-size: 31px; color:#7d7d7d; pointer-events:none;}
+.search-section .custom-select select{ width:100%; height:63px; padding:0 20px; font-size:19px; color:#7d7d7d; appearance:none; -webkit-appearance:none; -moz-appearance:none; -ms-appearance:none;-o-appearance:none;}
+.search-section .btn{ width:65px; height:65px; color:#fff; font-size:25px; line-height:65px; text-align:center; background:#0097ff; text-transform:capitalize; cursor:pointer;}
 
 
 /* Content box*/
@@ -52,49 +55,61 @@ header .right-section li a:hover { color:#fff; background:#c6538c;}
 .contentBox .right p{ font-size:22px; color:#444; line-height:36px; font-weight:lighter; display:inline-block; vertical-align:middle; }
 
 /* footer style start here */
-footer{padding:0 25px; width:100%; display:block; background:#c6538c; position:relative;}
+footer{padding:0 25px; width:100%; display:block; background:#f0f0f0; position:relative;}
 footer ul{ width:100%; display:block; text-align:center;}
 footer ul li{ display:inline-block; margin:0 20px;}
-footer ul li a{ color:#fff; line-height:45px; font-size:18px; font-weight:400;}
-footer ul li a:hover { color: #711E47;}
+footer ul li a{ color:#393939; line-height:45px; font-size:18px; font-weight:300;}
+footer ul li a:hover { color: #0098ff;}
 
 /* ask an expert page */
 .expertBox { width: 100%; overflow: hidden; }
 .expertBox .expertLeft {float:left; width:468px; padding-right:75px; text-align:center;}
 .expertBox .expertRight {float:left; width:calc(100% - 470px); padding-left:75px; border-left:1px solid #d6d6d6;}
 .expertBox h2 {font-size:43px; color:#535353; font-weight:normal; line-height:45px; margin-bottom:20px; margin-top:115px;}
-.expertBox h2 span { color:#4b84c7;}
+.expertBox h2 span { color:#0097ff;}
 .expertBox p {font-size:22px; color:#535353;}
-
-
+.expertBox .row{ width:100%; margin-bottom:25px;}
+.expertBox .custom-select {float: left;border: 1px solid #d1d1d1;max-width:160px; margin-right:38px; width: 100%;background: #fff;position: relative;}
+.expertBox .custom-select select {width: 100%;height:36px;padding: 0 15px;font-size: 14px;color:#535353;appearance: none;-webkit-appearance: none;-moz-appearance: none;-ms-appearance: none;-o-appearance: none;}
+.expertBox .custom-select:after {position: absolute;right: 0px;top: 0px;height:36px;width: 36px;background: #fff;content: "\e605";font-family: qa97;text-align: center;line-height: 36px;font-size:20px;color: #424242;pointer-events: none;}
+.expertBox .input{ width:100%; border-radius:2px; height:35px; background:#eaeaea; padding:0 17px;}
+.expertBox .postBtn{ float:right; height:38px; line-height:38px; background:#0097ff; cursor:pointer;color:#fff; padding:0 58px; font-size:16px;}
 
 /* login page style start here */
 .loginBox{ width:100%; max-width:546px; margin:0 auto;}
-.loginBox .block{ padding:30px 80px 45px 80px; width:100%; background:#ededed;}
-.loginBox .block h1{ font-size:68px; text-align:center; font-weight:normal; text-transform:uppercase; color:#c6538c; margin-bottom:17px;}
+.loginBox .block{ padding:30px 80px 45px 80px; width:100%;}
+.loginBox .block h1{ font-size:48px; text-align:center; font-weight:normal; color:#585858; margin-bottom:17px;}
 .loginBox .row{ width:100%; position:relative; margin-bottom:23px; background:#fff;}
-.loginBox i{ position:absolute; left:0px; top:0px; line-height:50px; width:50px; text-align:center; border-right:1px solid #d1d1d1; font-size:33px; color:#d1d1d1;}
-.loginBox i.lock{ font-size:25px;}
+.loginBox .row i{ position:absolute; left:0px; top:0px; line-height:50px; width:50px; text-align:center; border-right:1px solid #d1d1d1; font-size:33px; color:#d1d1d1;}
+.loginBox .row i.lock{ font-size:25px;}
 .loginBox .input{ height:50px; width:100%; border:1px solid #d1d1d1; padding:0 10px 0 60px; font-size:18px; color:#3a3a3a;}
 .loginBox .forgot{ float:right; font-size:14px; color:#494949; margin:-17px 0 25px 0;}
-.loginBox .button{ width:100%; display:block; line-height:50px; background:#609755; color:#fff; cursor: pointer; text-transform:uppercase; font-size:24px; text-align:center;}
-.loginBox .button.signupbtn{ background:#c6538c;}
-.loginBox .button:hover { background: #71B962;}
-.loginBox .button.signupbtn:hover { background: #EF73B0;}
-.loginBox .forgot:hover { color: #c6538c; }
+.loginBox .button{ width:100%; display:block; line-height:50px; background:#0097ff; color:#fff; cursor: pointer; text-transform:uppercase; font-size:24px; text-align:center;}
+.loginBox .button.signupbtn{ background:#e54c4c;}
+.loginBox .button:hover { background: #41B2FF;}
+.loginBox .button.signupbtn:hover { background: #ff5656;}
+.loginBox .forgot:hover { color: #0097ff; }
 .loginBox .seperator{display:block;  position:relative; height:80px;}
 .loginBox .seperator:after{ position:absolute; left:0px; top:50%; width:100%; height:1px; background:#d1d1d1; content:"";}
-.loginBox .seperator span{ position:absolute; left:0px; top:0px; right:0px; bottom:0px; margin:auto; background:#ededed; color:#3a3a3a; font-size:14px; padding:0 10px; width:118px; height:18px; z-index:999;}
+.loginBox .seperator span{ position:absolute; left:0px; top:0px; right:0px; bottom:0px; margin:auto; background:#fff; color:#3a3a3a; font-size:14px; padding:0 10px; width:118px; height:18px; z-index:999;}
 
-.loginBox .socialLogin{ background:#e1e1e1; padding:30px 80px;}
+.loginBox .socialLogin{  padding:30px 80px;}
 .loginBox .socialLogin .label{ font-size:21px; color:#393939; float:left; line-height:43px;}
 .loginBox .socialLogin ul{ float:right;}
 .loginBox .socialLogin li{ float:left; margin-left:36px; }
 .loginBox .socialLogin li a{ display:block; width:43px; height:43px; text-align:center; position:relative; background:#3d578f; color:#fff; font-size:25px;}
-.loginBox .socialLogin li a i{ position:absolute; left:0px; top:0px; line-height:43px; width:100%; height:43px;}
+.loginBox .socialLogin li a i{ position:absolute; left:0px; top:0px; line-height:43px; width:100%; height:43px; color: #fff;}
 .loginBox .socialLogin li a.twitter{ background:#28aae1; font-size:29px;}
 .loginBox .socialLogin li a.google{ background:#dc4a38; font-size:33px;}
 
 /* sign up page style start here */
 .loginBox.signupBox .input{ padding:0 10px;}
+
+/* home page start here */
+.homePage{ text-align:center;}
+.homePage h2{ font-size:31px; color:#272727; font-weight:normal;}
+.homePage h6{ font-size:16px; color:#313131; font-weight:normal;}
+.homePage h3{ font-size:28px; color:#313131; font-weight:normal; margin-top:46px;}
+/* home page end here */
+
 

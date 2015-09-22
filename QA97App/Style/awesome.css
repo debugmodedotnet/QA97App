@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'qa97';
-	src:url('../fonts/qa97.eot?eefbz');
-	src:url('../fonts/qa97.eot?#iefixeefbz') format('embedded-opentype'),
-		url('../fonts/qa97.ttf?eefbz') format('truetype'),
-		url('../fonts/qa97.woff?eefbz') format('woff'),
-		url('../fonts/qa97.svg?eefbz#qa97') format('svg');
+	src:url('../fonts/qa97.eot?woakaw');
+	src:url('../fonts/qa97.eot?#iefixwoakaw') format('embedded-opentype'),
+		url('../fonts/qa97.ttf?woakaw') format('truetype'),
+		url('../fonts/qa97.woff?woakaw') format('woff'),
+		url('../fonts/qa97.svg?woakaw#qa97') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,6 +23,57 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-sign-up:before {
+	content: "\e614";
+}
+.icon-home:before {
+	content: "\e615";
+}
+.icon-sign-in:before {
+	content: "\e616";
+}
+.icon-edit:before {
+	content: "\e606";
+}
+.icon-search:before {
+	content: "\e607";
+}
+.icon-comment:before {
+	content: "\e608";
+}
+.icon-download:before {
+	content: "\e609";
+}
+.icon-q:before {
+	content: "\e60a";
+}
+.icon-a:before {
+	content: "\e60b";
+}
+.icon-link:before {
+	content: "\e60c";
+}
+.icon-cross:before {
+	content: "\e60d";
+}
+.icon-like:before {
+	content: "\e60e";
+}
+.icon-dislike:before {
+	content: "\e60f";
+}
+.icon-share:before {
+	content: "\e610";
+}
+.icon-notification:before {
+	content: "\e611";
+}
+.icon-edit-note:before {
+	content: "\e612";
+}
+.icon-user:before {
+	content: "\e613";
+}
 .icon-mail:before {
 	content: "\e600";
 }
