@@ -1,19 +1,67 @@
-﻿<div class="row" ng-controller="HomeController">
+﻿<div class="search-section clearfix" ng-controller="HomeController">
+
+    <div class="serchbox clearfix">
+
+        <label class="label">i want to</label>
+        <span class="custom-select">
+            <!--<select>
+                <option>Ask a Question</option>
+                <option>Ask a Question1</option>
+                <option>Ask a Question2</option>
+                <option>Ask a Question3</option>
+            </select>-->
+            <select data-ng-model="selectedaction" ng-options="act.title for act in actions"></select>
+        </span>
+
+        <input type="submit" class="btn" ng-click="navigateToSearch()" value="go" />
+
+     </div>
+
+    <section class="container">
+
+        <div class="contentBox">
+
+            <div class="left">
+
+                <img src="../images/image.png" alt="" class="site-image" align="middle" />
+
+            </div>
+
+            <div class="right">
+
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to </p>
+
+            </div>
 
 
-   
-        <div class="col-md-2">
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+        <!--<div class="col-md-2">
 
         </div>
         <div class="col-md-4">
             <span class="input-group-addon" id="basic-addon1">I want to </span>
-           
-        </div> 
+
+        </div>
 
         <div class="col-md-6">
             <select data-ng-model="selectedaction" ng-options="act.title for act in actions"></select>
             <button class="btn btn-lg btn-info" ng-click="navigateToSearch()">Go</button>
-        </div>
+        </div>-->
 
-  
-</div>
+
+    </div>

@@ -3,26 +3,18 @@
 <head>
 
     <title>Professional Tutor</title>
-
-    <!--//Junaid CSS-->
-    <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />-->
-    <!--[if IE]>
-        <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-     <![endif]-->
-
-
-    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    
+    <link href="../Style/main.css" rel="stylesheet" />
+    <link href="../Style/awesome.css" rel="stylesheet" />
+    <!--<link href="../Content/bootstrap.css" rel="stylesheet" />-->
     <link href="../Content/infragistics.css" rel="stylesheet" />
-    <link href="index.css" rel="stylesheet" />  
+    <!--<link href="index.css" rel="stylesheet" />-->  
+
        
 
-    <link href="../Content/Font-Awesome-master/css/font-awesome.css" rel="stylesheet" />
+    <!--<link href="../Content/Font-Awesome-master/css/font-awesome.css" rel="stylesheet" />
 
-    <link href="../Content/font-awesome.css" rel="stylesheet" />
-   
+    <link href="../Content/font-awesome.css" rel="stylesheet" />-->   
     <link href="../Content/textAngular.css" rel="stylesheet" />
     <link href="../Content/angular-ui-switch.css" rel="stylesheet" />
 
@@ -63,17 +55,34 @@
     <script src="/Client/questiondetails/questiondetails.js"></script>
     <script src="/Client/listquestions/listquestions.js"></script>
     <script src="/Client/user/user.js"></script>
-    <script src="schooladminhome/schooladminhome.js"></script>
-    
+    <script src="schooladminhome/schooladminhome.js"></script>    
     <script src="home.js"></script>
 </head>
 <body>
 
 
 
-    <div class="container container-fluid">
+    <div class="main">
 
-        <header>
+        <!-- / top container \ -->
+        <div >
+
+            <header class="clearfix">
+                <a href="#Home" class="site-logo"><img src="../images/logo.png" alt="" /></a>
+
+                <ul class="right-section">
+                    <li><a href="#register">Sign up</a></li>
+                    <li><a href="#login">Sign in</a></li>
+                    <li><a href="#"  ng-click="open('lg')" class="join-school">join school</a></li>
+                </ul>
+                <ul ng-show="isLoggedIn" class="right-section">
+                    <li><a ng-click="navigateToUserProfile()">Hello {{userName}}</a></li>
+                    <li><a ng-click="userLogOut()">Logout</a></li>
+                </ul>
+            </header>
+        </div>
+
+        <!--<header>
                 <nav role="navigation" class="navbar navbar-static-top" ng-controller="MenuController">
                 <div class="navbar-header">
                     <div class="navbar-form navbar-nav navbar-left">
@@ -90,25 +99,25 @@
                 <!--<div class="navbar-form navbar-nav navbar-right">
                     <a class="btn btn-info" href="#Delete">Ask a Question</a>
                 </div>-->
-                <div class="navbar-form navbar-nav navbar-right">
+                <!--<div class="navbar-form navbar-nav navbar-right">
                     <a class="btn btn-info" ng-click="open('lg')">Join your School</a>
-                </div>
+                </div>-->
                 <!--<div class="navbar-form navbar-nav navbar-right">
                     <a class="btn btn-default" ng-click="open('lg')">Ask Question</a>
                 </div>-->
-                <ul ng-hide="isLoggedIn" class="nav navbar-nav navbar-right">
+                <!--<ul ng-hide="isLoggedIn" class="nav navbar-nav navbar-right">
                     <li><a href="#register">Sign Up</a></li>
                     <li><a href="#login">Sign In</a></li>
                 </ul>
                 <ul ng-show="isLoggedIn" class="nav navbar-nav navbar-right">
                     <li><a ng-click="navigateToUserProfile()">Hello {{userName}}</a></li>
                     <li><a ng-click="userLogOut()">Logout</a></li>
-                </ul>
+                </ul>-->
 
 
 
-            </nav>
-        </header>
+            <!--</nav>
+        </header>-->-->
 
         <div ng-view>
 
@@ -171,6 +180,22 @@
                 </ul>
             </div>
         </nav>-->
+
+        <footer>
+
+            <ul>
+
+                <li><a href="#">About</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Privacy &amp; Terms</a></li>
+
+            </ul>
+
+
+        </footer>
     </div>
 </body>
 </html>
