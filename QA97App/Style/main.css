@@ -25,13 +25,13 @@ select,input{ border:none; background:none; outline:none;}
 /* top header style start here */
 .top-header{ width:100%; display:block; }
 
-header{ padding:17px; width:100%; display:block; position:fixed; top:0px; left:0px; background:#f0f0f0; border-bottom:1px solid #dfdfdf; z-index:9999;}
-header .site-logo{ float:left; width:108px;}
+header{ padding:6px 17px; width:100%; display:block; position:fixed; top:0px; left:0px; background:#fff; border-bottom:1px solid #dfdfdf; z-index:9999;}
+header .site-logo{ float:left; width:65px;}
 header .site-logo img{ width:auto; height:auto; max-width:100%;}
-header .right-section{ float:right; width:auto; margin-top:14px;}
+header .right-section{ float:right; width:auto; margin-top:3px;}
 header .right-section li{ float:left; }
-header .right-section li a{ color:#4b4b4b; font-size:25px; display:block; padding:8px 24px 8px 54px; position:relative; }
-header .right-section li a i {position: absolute;left: 23px;top: 7px;color: #0097ff;font-size: 36px;}
+header .right-section li a{ color:#4b4b4b; font-size:18px; display:block; padding:8px 24px 8px 54px; position:relative; }
+header .right-section li a i {position: absolute;left: 20px;top: 6px;color: #0097ff;font-size: 30px;}
 header .right-section li a.join-school{ color:#fff; background:#0097ff; padding:8px 24px; text-transform:uppercase;  }
 header .right-section li a:hover,header .right-section li a:hover i { color:#fff; background:#0097ff;}
 
@@ -55,7 +55,7 @@ header .right-section li a:hover,header .right-section li a:hover i { color:#fff
 .contentBox .right p{ font-size:22px; color:#444; line-height:36px; font-weight:lighter; display:inline-block; vertical-align:middle; }
 
 /* footer style start here */
-footer{padding:0 25px; width:100%; display:block; background:#f0f0f0; position:relative;}
+footer{padding:0 25px; width:100%; display:block; background:#f0f0f0; position:relative; border-top:1px solid #bfbfbf;}
 footer ul{ width:100%; display:block; text-align:center;}
 footer ul li{ display:inline-block; margin:0 20px;}
 footer ul li a{ color:#393939; line-height:45px; font-size:18px; font-weight:300;}

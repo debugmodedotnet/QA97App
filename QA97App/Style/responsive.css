@@ -10,10 +10,6 @@
 
 
 @media screen and (max-width:1023px){
-	header .site-logo{width:84px;}
-	header .right-section li a{ font-size:19px; padding:5px 18px 5px 48px;}
-	header .right-section li a i{ font-size:32px; top:4px; left:18px; }
-	header .right-section li a.join-school{ padding:5px 18px;}
 	.top-header .blankDiv{ height:95px;}
 	.search-section .serchbox{ max-width:708px;}
 	.search-section .custom-select{ max-width:476px;}
@@ -24,28 +20,27 @@
 .expertBox h2{ font-size:26px; line-height:33px;margin-bottom:8px; margin-top:80px;}
 .expertBox p{ font-size:15px;} 
 .expertBox .expertRight{ padding-left:30px; width:calc(100% - 261px);}
-footer ul li a { font-size: 16px; }
+	
 	
 	}
 
 @media screen and (max-width:767px){
 
-header{ padding:10px;}
+header{ padding:6px 10px;}
 .top-header .blankDiv{ height:69px;}
 .container{ padding:10px;}	
 footer{ padding:0 10px;} 
-header .site-logo{ width:65px;}
+header .site-logo{ width:45px;}
 	header .right-section li a{ font-size:12px; padding:5px 12px 5px 36px;}
 	header .right-section li a i{ font-size:24px; top:2px; left:12px; }
 	header .right-section li a.join-school{ padding:5px 12px;}
-	.homePage h2{ font-size:18px;}
+	.homePage h2{ font-size:23px;}
 	.homePage h6{ font-size:13px;}
-	.homePage h3{ font-size:17px; margin-top:22px;}
+	.homePage h3{ font-size:20px; margin-top:22px;}
 	
 .search-section{ margin-top:10px;}
 .search-section .serchbox .label{ font-size:18px; line-height:50px; height:50px;}
 .search-section .serchbox{max-width:484px; }
-header .right-section{ margin-top:9px;}
 .search-section .custom-select{ max-width:274px; height:50px; line-height:50px;}
 .search-section .custom-select select {font-size: 16px;height:48px;padding: 0 12px;width: 100%;}
 .search-section .custom-select:after{ height:48px; line-height:48px; width:48px; font-size:21px;}
@@ -53,6 +48,8 @@ header .right-section{ margin-top:9px;}
 .contentBox{ padding:15px 0;}
 .contentBox .right{ padding:0 0 0 20px;}
 .contentBox .right p{ font-size:13px; line-height:22px;}
+footer ul li{ margin:0 8px;}
+footer ul li a{ font-size:13px;}
 
 .loginBox .block{ padding:30px 0 45px; }
 .loginBox .seperator span{ background:#fff;}
@@ -62,20 +59,18 @@ header .right-section{ margin-top:9px;}
 .expertBox .expertLeft {width: 100%; padding:0px; }	
 .expertBox .expertRight{ padding:30px 0px; margin-top:30px; width:100%; border-left:none; border-top:1px solid #d6d6d6; }
 
-footer ul li { margin: 0px 10px;}
-footer ul li a { line-height: 32px; font-size: 14px;}
 
 }
 
 @media screen and (max-width:479px){
-header .site-logo{ width:50px;}
 .top-header .blankDiv{ height:59px;}
 header .right-section li a{ padding:5px 9px;}
 .search-section .serchbox .label{ width:100%; border-right:1px solid #cdcdcd; margin-bottom:10px; text-align:center;}
 .search-section .custom-select{ max-width:none; width:calc(100% - 56px);}
 .contentBox .left{ width:100%; margin-bottom:15px;}
 .contentBox .right{ width:100%; padding:0px;}
-
+footer ul li { margin:0 2px;}
+footer ul li a{ font-size:11px;}
 
 .loginBox .socialLogin .label{ font-size:17px;}
 .loginBox .socialLogin li{ margin-left:20px;}
