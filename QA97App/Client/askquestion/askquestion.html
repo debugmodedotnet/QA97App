@@ -1,20 +1,87 @@
 ﻿
-<div ng-controller="AskQuestionController">
+<div class="main container">
   <div class="row">
         
-        <div class="col-md-3">
+
+
+      <div class="center">
+          <div class="expertBox clearfix">
+              <div class="expertLeft">
+                  <h2>
+                      ASK AN <br />
+                      <span>EXPERT</span>
+                  </h2>
+                  <p>Expert help with home work or quality answers to stubborn questions</p>
+              </div>
+
+              <div class="expertRight">
+
+
+                  <!--<div class="row clearfix">
+
+                      <div class="custom-select">
+                          <select>
+                              <option>Select Class</option>
+                          </select>
+                      </div>
+                      <div class="custom-select">
+                          <select>
+                              <option>Select Subject</option>
+                          </select>
+                      </div>
+
+                  </div>-->
+                  <div class="row">
+                      <input type="text"
+                             name="questiontext"
+                             ng-model="questiontitle"
+                             class="input"
+                             ng-keypress="clearemailstatusmessage()"
+                             placeholder="Title of the Question"/>
+                      <span class="help-block">{{questiontitleerrormessage}}</span>
+                  </div>
+                  <div class="row">                      
+                      <div text-angular ng-model="questionDetailRichText"></div>
+                      <span class="help-block">{{questiondetailerrormessage}}</span>
+                  </div>
+                  <div class="row clearfix">
+                      <div class="custom-select">
+                          <!--<select>
+                              <option>Select Class</option>
+                          </select>-->
+                          <select data-ng-model="selectedSubject" ng-options="act.Name for act in subjects"></select>
+                      </div>
+                      <div class="custom-select">
+                          <!--<select>
+                              <option>Select Subject</option>
+                          </select>-->
+                          <select data-ng-model="selecteClass" ng-options="act.Name for act in classes"></select>
+                      </div>
+                      <input type="submit" ng-click="AskQuestions()" class="postBtn" value="Post your Question" />
+                      
+                  </div>
+              </div>
+          </div>
+
+      </div>
+
+      </div>
+
+</div>
+
+        <!--<div class="col-md-3">
             
-            <h3 class="create--account">Do you have question<a href="#">Log in </a></h3>
+            <h3 class="create--account">Do you have question<a href="#">Log in </a></h3>-->
             <!--<span style="font-family:Arial;font-size:16px;color:#4A4A4A;">Forget Password  </span>-->
             
-        </div>
+        <!--</div>-->
         
      
     
    
-        <div class="col-md-7">
-            <form>
-                <div class="row">
+        <!--<div class="col-md-7">-->
+            <!--<form>-->
+                <!--<div class="row">-->
                     <!--<div class="col-md-3 pull-right">
                         <div class="dropdown">
                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -37,8 +104,8 @@
                             </ul>
                         </div>
                     </div>-->
-                </div>
-                <div>
+                <!--</div>-->
+                <!--<div>
                   <div id="name-group" class="question">
                         <input type="text"
                         name="questiontext"
@@ -71,13 +138,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div ng-show="flagaddquestion" class="alert alert-danger fade in">
-                <!--<a href="#" class="close" data-dismiss="alert">&times;</a>-->
+            </div>-->
+            <!--<div ng-show="flagaddquestion" class="alert alert-danger fade in">
+               
                 <strong>Ooops!</strong> A problem has been occurred adding Question.
-            </div>
-        </form>
+            </div>-->
+        <!--</form>
     </div>
 
 </div>
-</div>
+</div>-->

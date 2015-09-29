@@ -4,19 +4,23 @@
 
     <title>Professional Tutor</title>
     
+ 
+    
+
     <link href="../Style/main.css" rel="stylesheet" />
-    <link href="../Style/awesome.css" rel="stylesheet" />
-    <!--<link href="../Content/bootstrap.css" rel="stylesheet" />-->
+    <link href="../Style/responsive.css" rel="stylesheet" />
+    <link href="../Style/awesome.css" rel="stylesheet" />   
     <link href="../Content/infragistics.css" rel="stylesheet" />
-    <!--<link href="index.css" rel="stylesheet" />-->  
 
-       
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/Font-Awesome-master/css/font-awesome.css" rel="stylesheet" />
+    <link href="../Content/font-awesome.css" rel="stylesheet" />
+ 
 
-    <!--<link href="../Content/Font-Awesome-master/css/font-awesome.css" rel="stylesheet" />
-
-    <link href="../Content/font-awesome.css" rel="stylesheet" />-->   
     <link href="../Content/textAngular.css" rel="stylesheet" />
     <link href="../Content/angular-ui-switch.css" rel="stylesheet" />
+
+
 
 
     <!--vendor scripts-->
@@ -60,12 +64,10 @@
 </head>
 <body>
 
-
-
     <div class="main">
 
         <!-- / top container \ -->
-        <div >
+        <div class="top-header">
 
             <header class="clearfix">
                 <a href="#Home" class="site-logo"><img src="../images/logo.png" alt="" /></a>
@@ -73,58 +75,19 @@
                 <ul class="right-section">
                     <li><a href="#register">Sign up</a></li>
                     <li><a href="#login">Sign in</a></li>
-                    <li><a href="#"  ng-click="open('lg')" class="join-school">join school</a></li>
+                    <li><a href="#" ng-click="open('lg')" class="join-school">join school</a></li>
                 </ul>
                 <ul ng-show="isLoggedIn" class="right-section">
                     <li><a ng-click="navigateToUserProfile()">Hello {{userName}}</a></li>
                     <li><a ng-click="userLogOut()">Logout</a></li>
                 </ul>
             </header>
+            <div class="blankDiv"></div>
         </div>
-
-        <!--<header>
-                <nav role="navigation" class="navbar navbar-static-top" ng-controller="MenuController">
-                <div class="navbar-header">
-                    <div class="navbar-form navbar-nav navbar-left">
-                        <a href="#Home">
-                            <img src="views/logo.PNG" />
-                        </a>
-
-                    </div>
-
-                </div>
-                <!--<div class="navbar-form navbar-nav navbar-right">
-                    <a class="btn btn-info" href="#Delete">Search a Mentor</a>
-                </div>-->
-                <!--<div class="navbar-form navbar-nav navbar-right">
-                    <a class="btn btn-info" href="#Delete">Ask a Question</a>
-                </div>-->
-                <!--<div class="navbar-form navbar-nav navbar-right">
-                    <a class="btn btn-info" ng-click="open('lg')">Join your School</a>
-                </div>-->
-                <!--<div class="navbar-form navbar-nav navbar-right">
-                    <a class="btn btn-default" ng-click="open('lg')">Ask Question</a>
-                </div>-->
-                <!--<ul ng-hide="isLoggedIn" class="nav navbar-nav navbar-right">
-                    <li><a href="#register">Sign Up</a></li>
-                    <li><a href="#login">Sign In</a></li>
-                </ul>
-                <ul ng-show="isLoggedIn" class="nav navbar-nav navbar-right">
-                    <li><a ng-click="navigateToUserProfile()">Hello {{userName}}</a></li>
-                    <li><a ng-click="userLogOut()">Logout</a></li>
-                </ul>-->
-
-
-
-            <!--</nav>
-        </header>-->-->
 
         <div ng-view>
 
         </div>
-
-     
-
 
         <script type="text/ng-template" id="myModalContent.html">
             <div class="modal-header">
@@ -163,23 +126,6 @@
         </script>
 
 
-        <!--<nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container">
-                <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#Register">About</a></li>
-                    <li><a href="#Update">Career</a></li>
-                    <li><a href="#Update">Press</a></li>
-                    <li><a href="#Update">Blog</a></li>
-                    <li><a href="#Update">ContactUs</a></li>
-                    <li><a href="#Update">Privacy & Terms</a></li>
-
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#Register">Facebook</a></li>
-                    <li><a href="#Update">Twitter</a></li>
-                </ul>
-            </div>
-        </nav>-->
 
         <footer>
 
