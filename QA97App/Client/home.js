@@ -65,12 +65,36 @@ MyApp.controller('HomeController', function ($scope, $location, $rootScope, Teac
         
        
     }
-    //$scope.navigateToAllQuestions = function () {
-      
-    //    $location.path('/questions');
-    //}
+   
+    // Load questions second div 
 
 
+    $scope.pageno = 1;
+    $scope.pagesize = 5;
+    $scope.gid = -1;
+    $scope.sid = -1;
+    $scope.questions;
+    loadQuestions($scope.pageno, $scope.pagesize, $scope.gid, $scope.sid);
+    function loadQuestions(pageno, pagesize, gid, sid) {
+        TeacherService.listQuestions(pageno, pagesize, gid, sid)
+          .success(function (questions) {            
+              console.log(questions)
+              $scope.questions = questions;
+
+             
+
+          })
+          .error(function (error) {
+              $scope.status = 'Unable to load  data: ' + error.message;
+
+          });
+    }
+
+
+    $scope.navigateToBrowseQuestion = function()
+    {
+        $location.path('/questions');
+    }
    
    
 });
@@ -80,6 +104,14 @@ MyApp.controller('MenuController', function ($scope, $location, $rootScope, $mod
 
     // $scope.isUserLoggedIn = false;
     // $scope.loggedInUserName = undefined;
+
+
+    $scope.usercss = 'skins';
+
+    $scope.selectTheme = function(theme)
+    {
+        $scope.usercss = theme; 
+    }
     $scope.l = localStorageService.get("loggedInUser");
 
     if ($scope.l) {

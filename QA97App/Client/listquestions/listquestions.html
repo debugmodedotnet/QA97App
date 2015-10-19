@@ -1,36 +1,14 @@
 ﻿
+<div class="blankDiv"></div>
+<div class="blankDiv"></div>
+<div class="blankDiv"></div>
 
+<br/>
 <div class="row">
     <div class="col-md-1">
 
     </div>
-    <div class="col-md-7">
-        <button class="btn btn-info" ng-click="navigateToQuestion()">Ask a Question</button>
-    </div>
-
-    <div class="col-md-3">
-        <div class="input-group">
-
-            <input type="text" class="form-control" ng-model="qsearch" placeholder="type to search in questions" aria-describedby="sizing-addon1">
-            <span class="input-group-addon" id="sizing-addon1">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </span>
-        </div>
-    </div>
-    <div class="col-md-1">
-
-    </div>
-</div>
-
-
-<br/>
-<br/>
-
-<div class="row">
-    <div class="col-md-1">
-
-    </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 {{selectedSubject}}
@@ -42,7 +20,7 @@
             </ul>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 {{selectedClass}}
@@ -55,134 +33,198 @@
             </ul>
         </div>
     </div>
+    
     <div class="col-md-2">
-        <button class="btn btn-info" ng-click="applyFilter()">Reset Filter</button>
+        <button class="button color small" ng-click="applyFilter()">Reset Filter</button>
     </div>
-    <div class="col-md-3">
-        <button class="btn btn-info" ng-click="applyFilter()">Apply Filter</button>
+    <div class="col-md-2">
+        <button class="button color small" ng-click="applyFilter()">Apply Filter</button>
     </div>
    
 </div>
 
-<br />
-<br />
 
-<div class="row">
-    <div class="col-md-1"></div>
+<div class="blankDiv"></div>
 
-
-    <div class="col-md-10">
-        <table class="table">
-            <tr ng-repeat="q in questions|filter:qsearch">
-                <td>
-
-                    <div class="row">
-                        <div class="pull-left">
-                            <div>
-                                <div>
-                                    <!--<span class="label label-info"> {{q.NumberOfAnswers}} answers</span>-->
-                                    <button class="btn btn-link btn-xs">
-                                        {{q.UserName}}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="pull-right">
-                                {{q.CreatedDate| date:"MMM d, y 'at' h:mma"}}
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <!--{{q.Title}}-->
-                        <div class="pull-left">
-                            <button ng-click="navigatetoquestiondetails(q.Id)" class="btn btn-link btn-lg">
-                                {{q.Title}}
-                            </button>
-                        </div>
-
-
-                    </div>
-                    <!--<div class="row">
-                        <div>
-                            {{q.Detail}}
-                        </div>
-                    </div>
-
-                    <br />-->
-
-                    <div class="row">
-                        <div class="pull-left">
-                            <div>
-                                <div>
-                                    <button class="btn btn-info btn-xs">
-                                        {{q.SubjectName}}
-                                    </button>
-                                    <!--<span class="label label-info"> {{q.NumberOfAnswers}} answers</span>-->
-                                    <button class="btn btn-default btn-xs">
-                                        {{q.NumberOfAnswers}} answers
-                                    </button>
-                                    <!--<label class="label label-info">
-                                        {{q.NumberOfAnswers}} votes
-                                    </label>-->
-                                    <button class="btn btn-default btn-xs">
-                                        {{q.Score}} votes
-                                    </button>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div>
-                            <div class="pull-right">
-                                <div>
-                                    <!--<button class="btn btn-default btn-xs" ng-click="votequestionplus()">
-                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    </button>
-                                    <span>30</span>
-
-                                    <button class="btn btn-default btn-xs" ng-click="votequestionminus()">
-                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-                                    </button>-->
-                                    <!--<button class="btn btn-default btn-xs">
-                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                    </button>-->
-                                    <!-- Single button -->
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Share <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Facebook</a></li>
-                                            <li><a href="#">Twitter</a></li>
-                                            <li><a href="#">Email</a></li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="col-md-1"></div>
-
-</div>
 <br/>
-<div class="row">
-    <div class="col-md-4">
 
-    </div>
-    <div class="col-md-4">
-        <button class="btn btn-info" ng-click="loadmorequestions()" ng-disabled="isLoadMoreButtonDisabled">Load More Questions</button>
-    </div>
-    <div class="col-md-4">
+<section class="container main-content">
+    <div class="row">
+        <div class="col-md-9">
 
-    </div>
-    
+            <div class="tabs-warp question-tab">
+                <div class="tab-inner-warp">
+                 
+                    <div class="tab-inner">
+                        <table class="table">
+                            <tr ng-repeat="q in questions">
+                                <td>
 
-</div>
+                                    <article class="question question-type-normal">
+                                        <h2>
+                                            <a href="single_question.html">{{q.Title}}</a>
+                                        </h2>
+                                        <a class="question-report" href="#">{{q.SubjectName}}</a>
+
+                                        <div class="question-author">
+                                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
+                                        </div>
+                                        <div class="question-inner">
+                                            <div class="clearfix"></div>
+                                            <p class="question-desc">{{q.DetailPlainText}}</p>
+                                            <div class="question-details">
+                                                <span class="question-answered"><i class="icon-ok"></i>in progress</span>
+
+                                            </div>
+                                            <span class="question-category"><a href="#"><i class="icon-folder-close"></i>{{q.ClassName}}</a></span>
+                                            <span class="question-date"><i class="icon-time"></i>{{q.CreatedDate| date:"MMM d, y 'at' h:mma"}}</span>
+                                            <span class="question-comment"><a href="#"><i class="icon-comment"></i>{{q.NumberOfAnswers}} Answers</a></span>
+                                            <span class="question-view"><i class="icon-user"></i>{{q.Score}} votes</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </article>
+
+
+
+
+
+
+                                </td>
+                            </tr>
+                        </table>
+                        <a  ng-click="loadmorequestions()" ng-disabled="isLoadMoreButtonDisabled" href="" class="load-questions"><i class="icon-refresh"></i>Show More Questions</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <aside class="col-md-3 sidebar">
+            <div class="widget widget_stats">
+                <h3 class="widget_title">Stats</h3>
+                <div class="ul_list ul_list-icon-ok">
+                    <ul>
+                        <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
+                        <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="widget widget_login">
+                <h3 class="widget_title">Login</h3>
+                <div class="form-style form-style-2">
+                    <form>
+                        <div class="form-inputs clearfix">
+                            <p class="login-text">
+                                <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
+                                <i class="icon-user"></i>
+                            </p>
+                            <p class="login-password">
+                                <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
+                                <i class="icon-lock"></i>
+                                <a href="#">Forget</a>
+                            </p>
+                        </div>
+                        <p class="form-submit login-submit">
+                            <input type="submit" value="Log in" class="button color small login-submit submit">
+                        </p>
+                        <div class="rememberme">
+                            <label><input type="checkbox" checked="checked"> Remember Me</label>
+                        </div>
+                    </form>
+                    <ul class="login-links login-links-r">
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="widget widget_social">
+                <h3 class="widget_title">Find Us</h3>
+                <ul>
+                    <!--<li class="rss-subscribers">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="icon-rss"></i>
+                                <span>Subscribe</span><br>
+                                <small>To RSS Feed</small>
+                            </strong>
+                        </a>
+                    </li>-->
+                    <li class="facebook-fans">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-facebook"></i>
+                                <span>5,000</span><br>
+                                <small>People like it</small>
+                            </strong>
+                        </a>
+                    </li>
+                    <li class="twitter-followers">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-twitter"></i>
+                                <span>3,000</span><br>
+                                <small>Followers</small>
+                            </strong>
+                        </a>
+                    </li>
+                    <!--<li class="youtube-subs">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="icon-play"></i>
+                                <span>1,000</span><br>
+                                <small>Subscribers</small>
+                            </strong>
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+
+           
+
+            <div class="widget widget_highest_points">
+                <h3 class="widget_title">Star Students</h3>
+                <ul>
+                    <li>
+                        <div class="author-img">
+                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
+                        </div>
+                        <h6><a href="#">admin</a></h6>
+                        <span class="comment">12 Points</span>
+                    </li>
+                    <li>
+                        <div class="author-img">
+                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
+                        </div>
+                        <h6><a href="#">vbegy</a></h6>
+                        <span class="comment">10 Points</span>
+                    </li>
+                    <li>
+                        <div class="author-img">
+                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
+                        </div>
+                        <h6><a href="#">ahmed</a></h6>
+                        <span class="comment">5 Points</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget widget_tag_cloud">
+                <h3 class="widget_title">Top Subjects</h3>
+                <a href="#">projects</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Wordpress</a>
+                <a href="#">Html</a>
+                <a href="#">Css</a>
+                <a href="#">jQuery</a>
+                <a href="#">2code</a>
+                <a href="#">vbegy</a>
+            </div>
+
+           
+
+        </aside>
+    </div>
+</section>
+

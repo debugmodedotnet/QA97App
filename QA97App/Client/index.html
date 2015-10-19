@@ -1,35 +1,52 @@
 ﻿<!DOCTYPE html>
-<html ng-app="MyApp">
+<html ng-app="MyApp" ng-controller="MenuController">
+
 <head>
 
-    <title>Professional Tutor</title>
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=9" />
-    
+    <meta charset="utf-8">
+    <title>ASK QA97</title>
+    <meta name="description" content="Ask Question and get instant answer from the experts">
+    <meta name="author" content="Dhananjay Kumar">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link href="../Style/main.css" rel="stylesheet" />
-    <link href="../Style/responsive.css" rel="stylesheet" />
-    <link href="../Style/awesome.css" rel="stylesheet" />   
-    <link href="../Content/infragistics.css" rel="stylesheet" />
+    <!-- Main Style -->
+    <!--<link href="../css/style.css" rel="stylesheet" />-->
+    <link href="../style.css" rel="stylesheet" />
 
-    <!--<link href="../Content/bootstrap.css" rel="stylesheet" />
+    <!-- Skins -->
+    <link href="../css/skins/{{usercss}}.css" rel="stylesheet" />
+    <!--<link href="../css/skins/yellow.css" rel="stylesheet" />-->
+  
+    <!-- Responsive Style -->
+    <link href="../css/responsive.css" rel="stylesheet" />
+
+
+    <!-- Favicons -->
+
+
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+  
+
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Content/Font-Awesome-master/css/font-awesome.css" rel="stylesheet" />
     <link href="../Content/font-awesome.css" rel="stylesheet" />
- -->
 
+    <link href="../Content/infragistics.css" rel="stylesheet" />
     <link href="../Content/textAngular.css" rel="stylesheet" />
-    <link href="../Content/angular-ui-switch.css" rel="stylesheet" />
+    <!--<link href="../Content/angular-ui-switch.css" rel="stylesheet" />-->
 
 
 
 
     <!--vendor scripts-->
     <script src="../Scripts/jquery-1.9.1.js"></script>
-    <script src="../Scripts/bootstrap.js"></script>   
+    <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/angular.js"></script>
     <script src="../Scripts/angular-route.js"></script>
     <script src="../Scripts/angular-cookies.js"></script>
-    <script src="../Scripts/angular-ui/ui-bootstrap-tpls.js"></script> 
+    <script src="../Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
     <script src="../Scripts/angular-local-storage.js"></script>
     <script src="../Scripts/textAngular-rangy.min.js"></script>
     <script src="../Scripts/textAngular-sanitize.min.js"></script>
@@ -40,9 +57,9 @@
     <script src="../Scripts/ng-file-upload.js"></script>
     <script src="../Scripts/jspdf.debug.js"></script>
 
-    
+
     <!--For IG Chart-->
-    <script src="../Scripts/modernizr-2.7.2.js"></script>    
+    <script src="../Scripts/modernizr-2.7.2.js"></script>
     <!--<script src="../Scripts/jquery-2.0.3.js"></script>-->
     <script src="../Scripts/jquery-ui-1.10.3.js"></script>
     <script src="../Scripts/infragistics.core.js"></script>
@@ -59,15 +76,15 @@
     <script src="/Client/questiondetails/questiondetails.js"></script>
     <script src="/Client/listquestions/listquestions.js"></script>
     <script src="/Client/user/user.js"></script>
-    <script src="schooladminhome/schooladminhome.js"></script>    
+    <script src="schooladminhome/schooladminhome.js"></script>
     <script src="home.js"></script>
 </head>
 <body>
 
-    <div class="main">
+    <div id="wrap" class="grid_1200">
 
         <!-- / top container \ -->
-        <div class="top-header">
+        <!--<div class="top-header">
 
             <header class="clearfix">
                 <a href="#Home" class="site-logo"><img src="../images/logo.png" alt="" /></a>
@@ -83,13 +100,141 @@
                 </ul>
             </header>
             <div class="blankDiv"></div>
-        </div>
+        </div>-->
 
+        <!--<header id="header" class="header_light">
+            <section class="container clearfix">
+             
+                <div class="logo"><a href="index.html"><img alt="" src="../images/logo.png"></a></div>
+                <nav class="navigation">
+                    <ul>
+                        <li class="current_page_item">
+                            <a href="index.html">Home</a>
+                            <ul>
+                                <li class="current_page_item"><a href="index.html">Home</a></li>
+                                <li><a href="index_2.html">Home 2</a></li>
+                                <li><a href="index_boxed_1.html">Home Boxed 1</a></li>
+                                <li><a href="index_boxed_2.html">Home Boxed 2</a></li>
+                                <li><a href="index_no_box.html">Home No Box</a></li>
+                            </ul>
+                        </li>
+                        <li class="ask_question"><a href="ask_question.html">Ask Question</a></li>
+                        <li>
+                            <a href="cat_question.html">Questions</a>
+                            <ul>
+                                <li><a href="cat_question.html">Questions Category</a></li>
+                                <li><a href="single_question.html">Question Single</a></li>
+                                <li><a href="single_question_poll.html">Poll Question Single</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="user_profile.html">User</a>
+                            <ul>
+                                <li><a href="user_profile.html">User Profile</a></li>
+                                <li><a href="user_questions.html">User Questions</a></li>
+                                <li><a href="user_answers.html">User Answers</a></li>
+                                <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
+                                <li><a href="user_points.html">User Points</a></li>
+                                <li><a href="edit_profile.html">Edit Profile</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="blog_1.html">Blog</a>
+                            <ul>
+                                <li>
+                                    <a href="blog_1.html">Blog 1</a>
+                                    <ul>
+                                        <li><a href="blog_1.html">Right sidebar</a></li>
+                                        <li><a href="blog_1_l_sidebar.html">Left sidebar</a></li>
+                                        <li><a href="blog_1_full_width.html">Full Width</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="blog_2.html">Blog 2</a>
+                                    <ul>
+                                        <li><a href="blog_2.html">Right sidebar</a></li>
+                                        <li><a href="blog_2_l_sidebar.html">Left sidebar</a></li>
+                                        <li><a href="blog_2_full_width.html">Full Width</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="single_post.html">Post Single</a>
+                                    <ul>
+                                        <li><a href="single_post.html">Right sidebar</a></li>
+                                        <li><a href="single_post_l_sidebar.html">Left sidebar</a></li>
+                                        <li><a href="single_post_full_width.html">Full Width</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="right_sidebar.html">Pages</a>
+                            <ul>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="contact_us.html">Contact Us</a></li>
+                                <li><a href="ask_question.html">Ask Question</a></li>
+                                <li><a href="right_sidebar.html">Right Sidebar</a></li>
+                                <li><a href="left_sidebar.html">Left Sidebar</a></li>
+                                <li><a href="full_width.html">Full Width</a></li>
+                                <li><a href="404.html">404</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="shortcodes.html">Shortcodes</a></li>
+                        <li><a href="contact_us.html">Contact Us</a></li>
+                    </ul>
+                 
+                </nav>
+                <hr />
+            </section>
+      
+            
+        </header>-->
+
+       
+
+        <header id="header" class="header_light">
+            <section class="container clearfix">
+
+                <div class="logo"><a href="#Home"><img alt="" src="../images/logo.png"></a></div>
+                <nav class="navigation">
+                    <ul>
+                        <li class="current_page_item">
+                            <a href="#Home">Home</a>                           
+                        </li>
+                        <li class="ask_question"><a href="#askquestion">Ask Question</a></li>                       
+                    
+                        <li class="ask_question"><a href="#register">Register</a></li>
+                        <li class="ask_question"><a href="#login">Login</a></li>
+                        <li>
+                            <a href="user_profile.html">Theme</a>
+                            <ul>
+                                <li><a href="" ng-click="selectTheme('skins')">Default</a></li>
+                                <li><a href="" ng-click="selectTheme('blue')">Blue</a></li>
+                                <li><a href="" ng-click="selectTheme('moderate_cyan')">Cyan</a>
+                                <li><a href="" ng-click="selectTheme('green')">Green</a></li>
+                                <li><a href="" ng-click="selectTheme('gray')">Gray</a></li>
+                                <li><a href="" ng-click="selectTheme('red')">Red</a></li>                               
+                                <li><a href="" ng-click="selectTheme('orange')">Orange</a></li>
+                                <li><a href="" ng-click="selectTheme('purple')">Purple</a></li>                               
+                                <li><a href="" ng-click="selectTheme('yellow')">Yellow</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="ask_question"><a href="#askquestion">Join School</a></li>    
+                       
+                    </ul>
+
+                </nav>
+                <hr class="tabs" />
+            </section>
+
+
+        </header>
         <div ng-view>
 
         </div>
 
-        <script type="text/ng-template" id="myModalContent.html">
+        <!--<script type="text/ng-template" id="myModalContent.html">
             <div class="modal-header">
                 <h3 class="modal-title">Select School</h3>
             </div>
@@ -123,25 +268,33 @@
                 <button class="btn btn-info" type="button" ng-click="ok()">GO</button>
                 <button class="btn btn-info" type="button" ng-click="cancel()">Cancel</button>
             </div>
-        </script>
+        </script>-->
 
 
 
-        <footer>
-
-            <ul>
-
-                <li><a href="#">About</a></li>
-                <li><a href="#">Career</a></li>
-                <li><a href="#">Press</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Privacy &amp; Terms</a></li>
-
-            </ul>
-
-
-        </footer>
+    
     </div>
+
+
+    <!-- js -->
+    
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="../js/jquery.easing.1.3.min.js"></script>
+    <script src="../js/html5.js"></script>
+    <script src="../js/twitter/jquery.tweet.js"></script>
+    <script src="../js/jflickrfeed.min.js"></script>
+    <script src="../js/jquery.inview.min.js"></script>
+    <script src="../js/jquery.tipsy.js"></script>
+    <script src="../js/tabs.js"></script>
+    <script src="../js/jquery.flexslider.js"></script>
+    <script src="../js/jquery.prettyPhoto.js"></script>
+    <script src="../js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="../js/jquery.scrollTo.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/tags.js"></script>
+    <script src="../js/jquery.bxslider.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <!-- End js -->
 </body>
 </html>
