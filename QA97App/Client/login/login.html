@@ -1,114 +1,86 @@
-﻿<!--<div class="row signup signin">
-            <div class="joinee">
-                <span class="join">Sign In</span>
-            </div>
+﻿<br />
+<br />
 
-            <div class="row">
-                <div class="inline">
-                    <form>
-                  
-                    <div id="name-group" class="form-group-lg">
-                        <label>Enter your email address</label>
-                        <input type="email"
-                               ng-required="true"
-                               name="email"
-                               ng-model="useremail"
-                               ng-focus="clearloginerrormessage()"
-                               class="form-control"
-                               placeholder="Email">
-                        <span class="help-block"></span>
+<section class="container main-content">
+    <div class="login">
+
+        <div class="row">
+            <div class="col-md-7">
+                <div class="page-content">
+                    <h2>Login</h2>
+                    <div class="form-style form-style-3">
+                      
+
+                       
+                                <form>
+                                    <div class="form-inputs clearfix">
+                                        <p  class="login-text">
+                                           
+                                            <input type="email"
+                                                   ng-required="true"
+                                                   name="email"
+                                                   ng-model="useremail"
+                                                   ng-focus="clearloginerrormessage()"
+                                                   class="form-control"
+                                                   placeholder="Email">
+                                            <i class="icon-user"></i>
+                                            <span class="help-block"></span>
+                                        </p>
+                                        <p  class="login-password">
+                                            
+                                            <input type="password"
+                                                   ng-required="true"
+                                                   ng-model="userpassword"
+                                                   ng-focus="clearloginerrormessage()"
+                                                   name="password"
+                                                   class="form-control "
+                                                   placeholder="Password">
+                                            <i class="icon-lock"></i>
+                                            <a href="#">Forget</a>
+                                            <span class="help-block"></span>
+                                        </p>
+                                    </div>
+                                    <div ng-show="loginerrorflag" class="alert alert-danger fade in">
+                                        <strong>{{loginerrormessage}}</strong> <span class="help-block">New user <a class="btn-link" href="/Register">Sign Up</a> </span>
+                                    </div>
+                                    <p class="form-submit login-submit">
+                                        <button class="button color small login-submit submit" type="submit" ng-click="ValidateUser()">
+                                            Login
+                                        </button>
+                                    </p>
+                                    <div class="rememberme">
+                                        <label><input type="checkbox" checked="checked"> Remember Me</label>
+                                    </div>
+                                </form>
+                                <!--<div class="create--account"><p>Dont have an account? <a href="#">Create a free account</a> </p></div>-->
+                           
+
+                        <!--<div class="row new--account">
+                            <div class="alternate inline">Sign in with</div>
+                            <button class="f--awesome btn btn-lg btn-info"><i class="fa fa-google"></i></i></button>
+
+                            <button class="f--awesome btn btn-lg btn-info"><i class="fa fa-facebook"></i></button>
+
+                            <button class="f--awesome btn btn-lg btn-info"><i class="fa fa-linkedin"></i></i></button>
+
+                        </div>-->
                     </div>
-                    <div id="name-group" class="form-group-lg">
-                        <label>Enter your password</label>
-                        <input type="password"
-                               ng-required="true"
-                               ng-model="userpassword"
-                               ng-focus="clearloginerrormessage()"
-                               name="password"
-                               class="form-control "
-                               placeholder="Password">
-                        <span class="help-block"></span>
-                    </div>
-                    <div class="row forgot">
-                        <i class="fa fa-question-circle"></i><a href="#">Forgot your password</a>                    </div>
-                    <div ng-show="loginerrorflag" class="alert alert-danger fade in">
-                        <strong>{{loginerrormessage}}</strong> <span class="help-block">New user <a class="btn-link" href="/Register">Sign Up</a> </span>
-                    </div>
-                    <div id="name-group" class="form-group-lg">
-                        <button class="register" type="submit" ng-click="ValidateUser()" class="form-control btn btn-info">
-                             Login
-                        </button>
-                    </div>
-                </form>
-                <div class="create--account"><p>Dont have an account? <a href="#">Create a free account</a> </p></div>
                 </div>
             </div>
 
-            <div class="row new--account">
-                <div class="alternate inline">Sign in with</div>
-                <button class="f--awesome btn btn-lg btn-info"><i class="fa fa-google"></i></i></button>
-
-                <button class="f--awesome btn btn-lg btn-info"><i class="fa fa-facebook"></i></button>
-
-                <button class="f--awesome btn btn-lg btn-info"><i class="fa fa-linkedin"></i></i></button>
-
-            </div>
-        </div>-->
-
-<div>
-    <section class="container">
-
-        <div class="loginBox">
-
-            <div class="block">
-
-                <h1>Login QA97</h1>
-
-                <div class="row">
-
-                    <i class="icon-mail"></i>
-
-                    <input type="text" placeholder="Email" class="input" />
-
+            <div class="col-md-5">
+                <div class="page-content">
+                    <h2>Register Now</h2>
+                    <p>QA 97 is great rus laoreet consequa. Vivamus vulputate posuere nisl quis consequat.</p>
+                    <a class="button large color signup">Join QA97</a>
                 </div>
-
-                <div class="row">
-
-                    <i class="icon-lock lock"></i>
-
-                    <input type="password" placeholder="Password" class="input" />
-
-                </div>
-
-                <div class="clear"></div>
-
-                <a href="#" class="forgot">Forget Password?</a>
-
-                <input type="button" class="button" value="login" />
-
-                <div class="seperator"><span>New to QA97?</span></div>
-
-                <input type="button" class="button signupbtn" value="signup" />
-
             </div>
-
-            <div class="socialLogin clearfix">
-
-                <label class="label">Or Login with</label>
-
-                <ul>
-                    <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a class="google" href="#"><i class="icon-google"></i></a></li>
-                </ul>
-
-
-            </div>
-
-
         </div>
 
+    </div>
+</section>
 
-    </section>
 
-</div>
+
+
+

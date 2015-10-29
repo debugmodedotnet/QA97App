@@ -13,11 +13,11 @@ login.config(['$routeProvider', function ($routeProvider) {
 
 login.controller('LoginController', function ($scope, $rootScope, $location, TeacherService, localStorageService) {
 
-    $rootScope.bodystyle = 'bodywithoutimage';
+   
     $scope.loginerrormessage = undefined;
     $scope.loginerrorflag = false;
     $scope.isLoggedIn = false;
-    $scope
+    
 
     $scope.clearloginerrormessage = function () {
         $scope.loginerrormessage = undefined;
@@ -25,7 +25,7 @@ login.controller('LoginController', function ($scope, $rootScope, $location, Tea
     }
 
     $scope.ValidateUser = function () {     
-
+        alert("user");
         var userToLogin= {
             Password: $scope.userpassword,
             grant_type:'password',
@@ -40,7 +40,7 @@ login.controller('LoginController', function ($scope, $rootScope, $location, Tea
                        $scope.token = data.access_token;
                        $scope.username = data.userName;
                        $scope.isLoggedIn = true; 
-                      
+                       alert($scope.token);
                        $scope.loggedInUser = {
                            token: $scope.token,
                            userName: $scope.username,

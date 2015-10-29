@@ -41,12 +41,7 @@ MyApp.config(function (localStorageServiceProvider) {
 
 MyApp.controller('HomeController', function ($scope, $location, $rootScope, TeacherService) {
    
-    $scope.selectedaction = { "title": "Ask a Question", "id": "0" };
-    $scope.actions = [
-        { "title": "Ask a Question", "id": "0" },
-        { "title": "Search in Questions", "id": "1" },
-        { "title": "Search a Tutor", "id": "2" },
-    ];
+   
     $scope.navigateToSearch = function () {
         
         if ($scope.selectedaction.id === "0") {

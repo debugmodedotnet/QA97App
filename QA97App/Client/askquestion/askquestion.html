@@ -1,154 +1,281 @@
 ﻿
 
-  <div class="row">
-        
+<br />
+<br />
+<section class="container main-content">
 
+    <div class="row">
 
  
-          
-              <div class="col-md-2 col-md-offset-1">
-                  <h2>
-                      ASK AN <br />
-                      <span>EXPERT</span>
-                  </h2>
-                  <p>Expert help with home work or quality answers to stubborn questions</p>
-              </div>
-
-              <div class="col-md-6 col-md-offset-1">
 
 
-                  <!--<div class="row clearfix">
+       
 
-                      <div class="custom-select">
-                          <select>
-                              <option>Select Class</option>
-                          </select>
-                      </div>
-                      <div class="custom-select">
-                          <select>
-                              <option>Select Subject</option>
-                          </select>
-                      </div>
+        <div class="col-md-9">
 
-                  </div>-->
-                  <div class="row">
-                      <input type="text"
-                             name="questiontext"
-                             ng-model="questiontitle"
-                             class="input"
-                             ng-keypress="clearemailstatusmessage()"
-                             placeholder="Title of the Question"/>
-                      <span class="help-block">{{questiontitleerrormessage}}</span>
-                  </div>
-                  <div class="row">                      
-                      <div text-angular ng-model="questionDetailRichText"></div>
-                      <span class="help-block">{{questiondetailerrormessage}}</span>
-                  </div>
-               
-                  <div class="row clearfix">
+            <div class="page-content ask-question">
 
-                    
-                      <div class="custom-select">
-                          <!--<select>
-                              <option>Select Class</option>
-                          </select>-->
-                          <select data-ng-model="selectedSubject" ng-options="act.Name for act in subjects"></select>
-                      </div>
-                      <div class="custom-select">
-                          <!--<select>
-                              <option>Select Subject</option>
-                          </select>-->
-                          <select data-ng-model="selecteClass" ng-options="act.Name for act in classes"></select>
-                      </div>
-                    
-                      <input type="submit" ng-click="AskQuestions()" class="postBtn" value="Post your Question" />
-                      
-                  </div>
-              </div>
-      
+                <div class="boxedtitle page-title"><h2>Ask Question</h2></div>
 
+                <div class="form-style form-style-3" id="question-submit">
 
+                    <!--<div class="form-inputs clearfix">-->
+                        <p>
+                            <input type="text"
+                                   name="questiontext"
+                                   ng-model="questiontitle"
+                                   class="input"
+                                   ng-keypress="clearemailstatusmessage()"
+                                   placeholder="Title of the Question" />
+                            <span class="help-block">{{questiontitleerrormessage}}</span>
+                        </p>
+                        <!--<div class="clearfix"></div>-->
+                        <p class="row">
+                            <div text-angular ng-model="questionDetailRichText"></div>
+                            <span class="help-block">{{questiondetailerrormessage}}</span>
+                        </p>
 
-      </div>
+                        <div class="clearfix"></div>
 
-
-
-        <!--<div class="col-md-3">
-            
-            <h3 class="create--account">Do you have question<a href="#">Log in </a></h3>-->
-            <!--<span style="font-family:Arial;font-size:16px;color:#4A4A4A;">Forget Password  </span>-->
-            
-        <!--</div>-->
-        
-     
-    
-   
-        <!--<div class="col-md-7">-->
-            <!--<form>-->
-                <!--<div class="row">-->
-                    <!--<div class="col-md-3 pull-right">
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            {{selectedSubject}}
-                            <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li ng-repeat="a in subjects"><a ng-click="selectSubject(a.Name,a.Id)">{{a.Name}}</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            {{selectedClass}}
-                            <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li ng-repeat="a in classes"><a ng-click="selectClass(a.Name,a.Id)">{{a.Name}}</a></li>
-                            </ul>
-                        </div>
-                    </div>-->
-                <!--</div>-->
-                <!--<div>
-                  <div id="name-group" class="question">
-                        <input type="text"
-                        name="questiontext"
-                        ng-model="questiontitle"
-                        ng-keypress="clearemailstatusmessage()"
-                        class="form-control"
-                        placeholder="Title of the Question">
-                        
-                        <span class="help-block">{{questiontitleerrormessage}}</span>
-                    </div>
-                    <div id="loading">
-                    <progress id="pbar" value="0" style="display:none"></progress>
-                 </div>
-                <div id="name-group" class="form-group">
-                    <div class="row">
-                        <div text-angular ng-model="questionDetailRichText"></div>
-                        <span class="help-block">{{questiondetailerrormessage}}</span>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-8">
-                        <select data-ng-model="selectedSubject" ng-options="s.Name for s in subjects">
-                           
-                        </select>
-                        <select data-ng-model="selectedClass" ng-options="c.Name for c in classes">
+                    <p>
+                     
+                        <span class="styled-select">
+                            <select data-ng-model="selectedSubject" ng-options="act.Name for act in subjects"></select>
+                        </span>
                        
-                    </select>
-                </div>
-                        <div class="col-md-4">
-                            <button type="submit" ng-click="AskQuestions()" class="btn btn-lg btn-info">Post your Question</button>
-                        </div>
+                     
+                    </p>
+                    <p>
+                        <span class="styled-select">
+                            <select data-ng-model="selectedClass" ng-options="act.Name for act in classes"></select>
+                        </span>
+                    </p>
+                    <p>
+                                <input type="submit" ng-click="AskQuestions()" class="button color large submit" value="Post your Question" />
+                          
+                      </p>
+                    </div>
+
                     </div>
                 </div>
-            </div>-->
-            <!--<div ng-show="flagaddquestion" class="alert alert-danger fade in">
-               
-                <strong>Ooops!</strong> A problem has been occurred adding Question.
-            </div>-->
-        <!--</form>
+
+
+
+
+
+        <aside class="col-md-3 sidebar">
+            <div class="widget widget_stats">
+                <h3 class="widget_title">Stats</h3>
+                <div class="ul_list ul_list-icon-ok">
+                    <ul>
+                        <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
+                        <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="widget widget_login">
+                <h3 class="widget_title">Login</h3>
+                <div class="form-style form-style-2">
+                    <form>
+                        <div class="form-inputs clearfix">
+                            <p class="login-text">
+                                <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
+                                <i class="icon-user"></i>
+                            </p>
+                            <p class="login-password">
+                                <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
+                                <i class="icon-lock"></i>
+                                <a href="#">Forget</a>
+                            </p>
+                        </div>
+                        <p class="form-submit login-submit">
+                            <input type="submit" value="Log in" class="button color small login-submit submit">
+                        </p>
+                        <div class="rememberme">
+                            <label><input type="checkbox" checked="checked"> Remember Me</label>
+                        </div>
+                    </form>
+                    <ul class="login-links login-links-r">
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="widget widget_social">
+                <h3 class="widget_title">Find Us</h3>
+                <ul>
+                    <!--<li class="rss-subscribers">
+                    <a href="#" target="_blank">
+                        <strong>
+                            <i class="icon-rss"></i>
+                            <span>Subscribe</span><br>
+                            <small>To RSS Feed</small>
+                        </strong>
+                    </a>
+                </li>-->
+                    <li class="facebook-fans">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-facebook"></i>
+                                <span>5,000</span><br>
+                                <small>People like it</small>
+                            </strong>
+                        </a>
+                    </li>
+                    <li class="twitter-followers">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-twitter"></i>
+                                <span>3,000</span><br>
+                                <small>Followers</small>
+                            </strong>
+                        </a>
+                    </li>
+                    <!--<li class="youtube-subs">
+                    <a href="#" target="_blank">
+                        <strong>
+                            <i class="icon-play"></i>
+                            <span>1,000</span><br>
+                            <small>Subscribers</small>
+                        </strong>
+                    </a>
+                </li>-->
+                </ul>
+            </div>
+
+
+
+            <div class="widget widget_highest_points">
+                <h3 class="widget_title">Star Students</h3>
+                <ul>
+                    <li>
+                        <div class="author-img">
+                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
+                        </div>
+                        <h6><a href="#">admin</a></h6>
+                        <span class="comment">12 Points</span>
+                    </li>
+                    <li>
+                        <div class="author-img">
+                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
+                        </div>
+                        <h6><a href="#">vbegy</a></h6>
+                        <span class="comment">10 Points</span>
+                    </li>
+                    <li>
+                        <div class="author-img">
+                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
+                        </div>
+                        <h6><a href="#">ahmed</a></h6>
+                        <span class="comment">5 Points</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget widget_tag_cloud">
+                <h3 class="widget_title">Top Subjects</h3>
+                <a href="#">projects</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Wordpress</a>
+                <a href="#">Html</a>
+                <a href="#">Css</a>
+                <a href="#">jQuery</a>
+                <a href="#">2code</a>
+                <a href="#">vbegy</a>
+            </div>
+
+
+
+        </aside>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
     </div>
 
-</div>
-</div>-->
+</section>
+
+    <!--<div class="col-md-3">
+
+        <h3 class="create--account">Do you have question<a href="#">Log in </a></h3>-->
+    <!--<span style="font-family:Arial;font-size:16px;color:#4A4A4A;">Forget Password  </span>-->
+    <!--</div>-->
+    <!--<div class="col-md-7">-->
+    <!--<form>-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-3 pull-right">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{selectedSubject}}
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li ng-repeat="a in subjects"><a ng-click="selectSubject(a.Name,a.Id)">{{a.Name}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{selectedClass}}
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li ng-repeat="a in classes"><a ng-click="selectClass(a.Name,a.Id)">{{a.Name}}</a></li>
+            </ul>
+        </div>
+    </div>-->
+    <!--</div>-->
+    <!--<div>
+          <div id="name-group" class="question">
+                <input type="text"
+                name="questiontext"
+                ng-model="questiontitle"
+                ng-keypress="clearemailstatusmessage()"
+                class="form-control"
+                placeholder="Title of the Question">
+
+                <span class="help-block">{{questiontitleerrormessage}}</span>
+            </div>
+            <div id="loading">
+            <progress id="pbar" value="0" style="display:none"></progress>
+         </div>
+        <div id="name-group" class="form-group">
+            <div class="row">
+                <div text-angular ng-model="questionDetailRichText"></div>
+                <span class="help-block">{{questiondetailerrormessage}}</span>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <select data-ng-model="selectedSubject" ng-options="s.Name for s in subjects">
+
+                </select>
+                <select data-ng-model="selectedClass" ng-options="c.Name for c in classes">
+
+            </select>
+        </div>
+                <div class="col-md-4">
+                    <button type="submit" ng-click="AskQuestions()" class="btn btn-lg btn-info">Post your Question</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!--<div ng-show="flagaddquestion" class="alert alert-danger fade in">
+
+        <strong>Ooops!</strong> A problem has been occurred adding Question.
+    </div>-->
+    <!--</form>
+        </div>
+
+    </div>
+    </div>-->

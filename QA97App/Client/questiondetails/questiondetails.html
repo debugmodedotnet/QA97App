@@ -1,277 +1,224 @@
 ﻿
-<div>
+<br/>
+
+
+<section class="container main-content">
+
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-6"><h2> {{question.Title}}</h2></div>
 
-    </div>
-    <div class="row">
-        <div class="col-md-1"></div>
 
-        <div class="col-md-10">
-            <table class="table">
-                <tr>
-                    <td>
-                        <div class="row">
-                            <div class="pull-left">
-                                <div>
-                                    <div>
-                                        <!--<span class="label label-info"> {{q.NumberOfAnswers}} answers</span>-->
-                                        <button class="btn btn-link btn-xs">
-                                            {{question.UserName}}
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="pull-right">
-                                    {{question.CreatedDate| date:"MMM d, y 'at' h:mma"}}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div ng-bind-html="question.DetailRichText">
-                                <!--{{question.DetailRichText}}-->
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="pull-left">
-                                <div>
-                                    <div>
-                                        <!--<span class="label label-info"> {{q.NumberOfAnswers}} answers</span>-->
-                                        <button class="btn btn-default btn-xs">
-                                            {{question.NumberOfAnswers}} answers
-                                        </button>
-                                        <!--<label class="label label-info">
-                                            {{q.NumberOfAnswers}} votes
-                                        </label>-->
-                                        <button class="btn btn-default btn-xs">
-                                            {{question.Score}} votes
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="pull-right">
-                                    <div>
-                                        <button class="btn btn-success btn-xs" ng-click="toggleComments()">
-                                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                                        </button>
-                                        <span> </span>
-                                        <button class="btn btn-success btn-xs" ng-click="changeVote(1)">
-                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                        </button>
-                                        <span> </span>
-                                        <button class="btn btn-danger btn-xs" ng-click="changeVote(-1)">
-                                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                                        </button>
-                                        <!--<button class="btn btn-default btn-xs">
-                                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                        </button>-->
-                                        <!-- Single button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Share <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">Facebook</a></li>
-                                                <li><a href="#">Twitter</a></li>
-                                                <li><a href="#">Email</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="row" ng-show="showComments">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    Comments
-                </div>
-                <div class="panel-body">
-                    <span class="info">{{status}}</span>
-                    <div id="addComment" ng-show="question.UserId == loggedInData.userName">
-                        <div class="form-group">
-                            <textarea class="form-control" ng-model="commentText"></textarea>
-                        </div>
-                        <div class="form-group pull-right">
-                            <button type="button" class="btn btn-success btn-xs" ng-click="addComment()">
-                                <i class="glyphicon glyphicon-ok"></i>
-                            </button>
-                            <span> </span>
-                            <button type="button" class="btn btn-warning btn-xs" ng-click="toggleComments()">
-                                <i class="fa fa-times"></i>
-                            </button>
-                            <span> </span>
+        <div class="col-md-9">
+            <article class="question single-question question-type-normal">
+                <h2>
+                   {{question.Title}}
+                </h2>
+                <a class="question-report" href="">{{question.UserName}}</a>
+                <!--<div class="question-type-main"><i i_color="#FFF" class="social_icon-twitter"></i></div>-->
+                <div class="question-inner">
+                    <div class="clearfix"></div>
+                    <div class="question-desc">
+                        <div ng-bind-html="question.DetailRichText">
+                            <!--{{question.DetailRichText}}-->
                         </div>
                     </div>
-                    <div id="commentDisplay">
-                        <table class="table table-striped table-bordered">
-                            <tr ng-repeat="c in comments | orderBy:'-CreatedDate'">
-                                <td>
-                                    <span class="pull-left">
-                                        {{c.CommentText}}
-                                    </span>
-                                    <span class="pull-right">{{c.CreatedDate| date:"MMM d, y 'at' h:mma"}}</span>
-                                </td>
-                            </tr>
-                        </table>
+                    <div class="question-details">
+                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
+                     </div>
+                    <span class="question-category"><a href="#"><i class="icon-folder-close"></i>{{question.SubjectName}}</a></span>
+                    <span class="question-category"><a href="#"><i class="icon-folder-close"></i>{{question.ClassName}}</a></span>
+                    <span class="question-comment"><a href="#"><i class="icon-comment"></i>{{question.NumberOfAnswers}} Answers</a></span>
+                    <span class="question-date"><i class="icon-time"></i>{{question.CreatedDate| date:"MMM d, y 'at' h:mma"}}</span>                    
+                    <span class="single-question-vote-result">{{question.Score}} votes</span>
+                    <ul class="single-question-vote">
+                        <li><a href="" ng-click="changeVote(-1)" class="single-question-vote-down" title="Dislike"><i class="icon-thumbs-down"></i></a></li>
+                        <li><a href="" ng-click="changeVote(1)" class="single-question-vote-up" title="Like"><i class="icon-thumbs-up"></i></a></li>
+                    </ul>
+                    <div class="clearfix"></div>
                     </div>
+        </article>
+  
+            <!--<div class="about-author clearfix">
+                <div class="author-image">
+                    <a href="#" original-title="admin" class="tooltip-n"><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
                 </div>
+                <div class="author-bio">
+                    <h4>{{question.UserName}}</h4>
+                    He is great man 
+                </div>
+            </div>-->
+
+            <div id="commentlist" class="page-content">
+                <div class="boxedtitle page-title"><h2>Answers ( <span class="color">{{question.NumberOfAnswers}}</span> )</h2></div>
+                <ol class="commentlist clearfix">
+                    <li class="comment" ng-repeat="q in answers">
+                        <div class="comment-body comment-body-answered clearfix">
+                            <div class="avatar"><img alt="" src="http://placehold.it/60x60/FFF/444"></div>
+                            <div class="comment-text">
+                                <div class="author clearfix">
+                                    <div class="comment-author"><a href="">{{q.UserName}}</a></div>
+
+                                    <div class="comment-vote">
+                                        <ul class="question-vote">
+                                            <li><a href="" ng-click="changeVote(1)" class="question-vote-up" title="Like"></a></li>
+                                            <li><a href="" ng-click="changeVote(-1)" class="question-vote-down" title="Dislike"></a></li>
+                                        </ul>
+                                    </div>
+                                    <span class="question-vote-result">{{q.Score}}</span>
+                                    <div class="comment-meta">
+                                        <div class="date"><i class="icon-time"></i>{{q.CreatedDate | date:"MMM d, y 'at' h:mma"}}</div>
+                                    </div>
+                                    <a class="comment-reply" href="#"><i class="icon-download"></i>Download</a>
+                                </div>
+                                <div class="text" ng-model="svdiv">
+                                    <div ng-bind-html="q.AnswerDetailRichText">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+             </ol>
+       </div>
+
+
+            <div id="respond" class="comment-respond page-content clearfix">
+                <div class="boxedtitle page-title"><h2>Your Answer</h2>
+                </div>
+
+                <div id="respond-textarea">
+                    <div text-angular ng-model="answerDetailRichText"></div>
+                </div>
+                <p class="form-submit">
+                    <input name="submit" type="submit" id="submit" value="Post your answer" ng-click="AddAnswer()" class="button small color">
+                </p>
+
             </div>
         </div>
-    </div>
 
-    <br />
-    <br />
-    <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10">
-            <form>
-
-                <div class="row">
-                    <div id="loading">
-                        <progress id="pbar" value="0" style="display:none"></progress>
-                    </div>
-                    <div id="name-group" class="form-group">
-                        <!--<textarea ng-model="answerdetail" class="form-control" placeholder="Answer here"></textarea>-->
-                        <div text-angular ng-model="answerDetailRichText"></div>
-                        <span class="help-block"></span>
-                    </div>
-
+        <aside class="col-md-3 sidebar">
+            <div class="widget widget_stats">
+                <h3 class="widget_title">Stats</h3>
+                <div class="ul_list ul_list-icon-ok">
+                    <ul>
+                        <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
+                        <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
+                    </ul>
                 </div>
-                <div class="row">
-                    <div id="name-group" class="form-group">
-                        <div class="col-md-4">
-                        </div>
-                        <div class="col-md-3">
-                            <button type="submit" ng-click="AddAnswer()" class="form-control btn btn-sm btn-info">
-                                <!--<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>-->
-                                Post your Answer
-                            </button>
-                        </div>
-                        <!--<div class="col-md-6">
-
-                        </div>-->
-                    </div>
-                </div>
-            </form>
-
-        </div>
-        <div class="col-md-1">
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-2 form-group">
-            <!--<button class="btn btn-info form-control " ng-click="open = !open">Post your Answer!</button>-->
-        </div>
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-5">
-            <div class="input-group">
-                <input type="text" class="form-control" ng-model="qsearch" placeholder="type to search in answers" aria-describedby="sizing-addon1">
-                <span class="input-group-addon" id="sizing-addon1">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                </span>
             </div>
-        </div>
-        <div class="col-md-1">
-        </div>
-    </div>
-    <br />
 
-    <div class="row">
-        <div class="col-md-1"></div>
+            <div class="widget widget_login">
+                <h3 class="widget_title">Login</h3>
+                <div class="form-style form-style-2">
+                    <form>
+                        <div class="form-inputs clearfix">
+                            <p class="login-text">
+                                <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
+                                <i class="icon-user"></i>
+                            </p>
+                            <p class="login-password">
+                                <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
+                                <i class="icon-lock"></i>
+                                <a href="#">Forget</a>
+                            </p>
+                        </div>
+                        <p class="form-submit login-submit">
+                            <input type="submit" value="Log in" class="button color small login-submit submit">
+                        </p>
+                        <div class="rememberme">
+                            <label><input type="checkbox" checked="checked"> Remember Me</label>
+                        </div>
+                    </form>
+                    <ul class="login-links login-links-r">
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
 
-        <div class="col-md-10">
-            <table class="table">
-                <tr ng-repeat="q in answers|filter:qsearch">
-                    <td>
-                        <div class="row">
-                            <div class="pull-left">
-                                <div>
-                                    <div>
-                                        <button class="btn btn-link btn-xs">
-                                            {{q.UserName}}
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="pull-right">
-                                    {{q.CreatedDate | date:"MMM d, y 'at' h:mma"}}
-                                </div>
-                            </div>
+            <div class="widget widget_social">
+                <h3 class="widget_title">Find Us</h3>
+                <ul>
+                    <!--<li class="rss-subscribers">
+                    <a href="#" target="_blank">
+                        <strong>
+                            <i class="icon-rss"></i>
+                            <span>Subscribe</span><br>
+                            <small>To RSS Feed</small>
+                        </strong>
+                    </a>
+                </li>-->
+                    <li class="facebook-fans">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-facebook"></i>
+                                <span>5,000</span><br>
+                                <small>People like it</small>
+                            </strong>
+                        </a>
+                    </li>
+                    <li class="twitter-followers">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-twitter"></i>
+                                <span>3,000</span><br>
+                                <small>Followers</small>
+                            </strong>
+                        </a>
+                    </li>
+                    <!--<li class="youtube-subs">
+                    <a href="#" target="_blank">
+                        <strong>
+                            <i class="icon-play"></i>
+                            <span>1,000</span><br>
+                            <small>Subscribers</small>
+                        </strong>
+                    </a>
+                </li>-->
+                </ul>
+            </div>
+
+
+
+            <div class="widget widget_highest_points">
+                <h3 class="widget_title">Star Students</h3>
+                <ul>
+                    <li>
+                        <div class="author-img">
+                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
                         </div>
-                        <div class="row" ng-model="svdiv">
-                            <div ng-bind-html="q.AnswerDetailRichText">
-                            </div>
+                        <h6><a href="#">admin</a></h6>
+                        <span class="comment">12 Points</span>
+                    </li>
+                    <li>
+                        <div class="author-img">
+                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
                         </div>
-                        <br />
-                        <div class="row">
-                            <div class="pull-left">
-                                <div>
-                                    <div>
-                                        <!--<span class="label label-info"> {{q.NumberOfAnswers}} answers</span>-->
-                                        <!--<button class="btn btn-default btn-xs">
-                                            {{q.NumberOfAnswers}} answers
-                                        </button>-->
-                                        <!--<label class="label label-info">
-                                            {{q.NumberOfAnswers}} votes
-                                        </label>-->
-                                        <button class="btn btn-default btn-xs">
-                                            {{q.Score}} votes
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="pull-right">
-                                    <div>
-                                        <button class="btn btn-default btn-xs" ng-click="savetoPDF(question,q.AnswerDetailRichText)">
-                                            <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
-                                        </button>
-                                        <span> </span>
-                                        <button class="btn btn-success btn-xs" ng-click="changeVote(1)">
-                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                        </button>
-                                        <span> </span>
-                                        <button class="btn btn-danger btn-xs" ng-click="changeVote(-1)">
-                                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                                        </button>
-                                        <!-- Single button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Share <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">Facebook</a></li>
-                                                <li><a href="#">Twitter</a></li>
-                                                <li><a href="#">Email</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <h6><a href="#">vbegy</a></h6>
+                        <span class="comment">10 Points</span>
+                    </li>
+                    <li>
+                        <div class="author-img">
+                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
                         </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="col-md-1"></div>
+                        <h6><a href="#">ahmed</a></h6>
+                        <span class="comment">5 Points</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget widget_tag_cloud">
+                <h3 class="widget_title">Top Subjects</h3>
+                <a href="#">projects</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Wordpress</a>
+                <a href="#">Html</a>
+                <a href="#">Css</a>
+                <a href="#">jQuery</a>
+                <a href="#">2code</a>
+                <a href="#">vbegy</a>
+            </div>
+
+
+
+        </aside>
     </div>
-</div>
+</section>
