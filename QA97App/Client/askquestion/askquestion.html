@@ -6,10 +6,10 @@
 
     <div class="row">
 
- 
 
 
-       
+
+
 
         <div class="col-md-9">
 
@@ -20,30 +20,30 @@
                 <div class="form-style form-style-3" id="question-submit">
 
                     <!--<div class="form-inputs clearfix">-->
-                        <p>
-                            <input type="text"
-                                   name="questiontext"
-                                   ng-model="questiontitle"
-                                   class="input"
-                                   ng-keypress="clearemailstatusmessage()"
-                                   placeholder="Title of the Question" />
-                            <span class="help-block">{{questiontitleerrormessage}}</span>
-                        </p>
-                        <!--<div class="clearfix"></div>-->
-                        <p class="row">
-                            <div text-angular ng-model="questionDetailRichText"></div>
-                            <span class="help-block">{{questiondetailerrormessage}}</span>
-                        </p>
+                    <p>
+                        <input type="text"
+                               name="questiontext"
+                               ng-model="questiontitle"
+                               class="input"
+                               ng-keypress="clearemailstatusmessage()"
+                               placeholder="Title of the Question" />
+                        <span class="help-block">{{questiontitleerrormessage}}</span>
+                    </p>
+                    <!--<div class="clearfix"></div>-->
+                    <p class="row">
+                        <div text-angular ng-model="questionDetailRichText"></div>
+                        <span class="help-block">{{questiondetailerrormessage}}</span>
+                    </p>
 
-                        <div class="clearfix"></div>
+                    <div class="clearfix"></div>
 
                     <p>
-                     
+
                         <span class="styled-select">
                             <select data-ng-model="selectedSubject" ng-options="act.Name for act in subjects"></select>
                         </span>
-                       
-                     
+
+
                     </p>
                     <p>
                         <span class="styled-select">
@@ -51,20 +51,17 @@
                         </span>
                     </p>
                     <p>
-                                <input type="submit" ng-click="AskQuestions()" class="button color large submit" value="Post your Question" />
-                          
-                      </p>
-                    </div>
+                        <input type="submit" ng-click="AskQuestions()" class="button color large submit" value="Post your Question" />
 
-                    </div>
+                    </p>
                 </div>
 
-
-
+            </div>
+        </div>
 
 
         <aside class="col-md-3 sidebar">
-            <div class="widget widget_stats">
+            <!--<div class="widget widget_stats">
                 <h3 class="widget_title">Stats</h3>
                 <div class="ul_list ul_list-icon-ok">
                     <ul>
@@ -72,82 +69,28 @@
                         <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
                     </ul>
                 </div>
-            </div>
+            </div>-->
 
-            <div class="widget widget_login">
+
+
+
+            <div class="widget widget_social loginwidgetrotate" ng-hide="isLoggedIn">
                 <h3 class="widget_title">Login</h3>
-                <div class="form-style form-style-2">
-                    <form>
-                        <div class="form-inputs clearfix">
-                            <p class="login-text">
-                                <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
-                                <i class="icon-user"></i>
-                            </p>
-                            <p class="login-password">
-                                <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
-                                <i class="icon-lock"></i>
-                                <a href="#">Forget</a>
-                            </p>
-                        </div>
-                        <p class="form-submit login-submit">
-                            <input type="submit" value="Log in" class="button color small login-submit submit">
-                        </p>
-                        <div class="rememberme">
-                            <label><input type="checkbox" checked="checked"> Remember Me</label>
-                        </div>
-                    </form>
-                    <ul class="login-links login-links-r">
-                        <li><a href="#">Register</a></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-
-            <div class="widget widget_social">
-                <h3 class="widget_title">Find Us</h3>
                 <ul>
-                    <!--<li class="rss-subscribers">
-                    <a href="#" target="_blank">
-                        <strong>
-                            <i class="icon-rss"></i>
-                            <span>Subscribe</span><br>
-                            <small>To RSS Feed</small>
-                        </strong>
-                    </a>
-                </li>-->
-                    <li class="facebook-fans">
-                        <a href="#" target="_blank">
+                    <li class="youtube-subs ">
+                        <a href="">
                             <strong>
-                                <i class="social_icon-facebook"></i>
-                                <span>5,000</span><br>
-                                <small>People like it</small>
+                                <i class="icon-user-md"></i>
+                                <span>Login</span><br>
+                                <small>To Ask Questions</small>
                             </strong>
                         </a>
                     </li>
-                    <li class="twitter-followers">
-                        <a href="#" target="_blank">
-                            <strong>
-                                <i class="social_icon-twitter"></i>
-                                <span>3,000</span><br>
-                                <small>Followers</small>
-                            </strong>
-                        </a>
-                    </li>
-                    <!--<li class="youtube-subs">
-                    <a href="#" target="_blank">
-                        <strong>
-                            <i class="icon-play"></i>
-                            <span>1,000</span><br>
-                            <small>Subscribers</small>
-                        </strong>
-                    </a>
-                </li>-->
                 </ul>
             </div>
 
 
-
-            <div class="widget widget_highest_points">
+            <div class="widget widget_highest_points" ng-show="isLoggedIn">
                 <h3 class="widget_title">Star Students</h3>
                 <ul>
                     <li>
@@ -174,6 +117,31 @@
                 </ul>
             </div>
 
+            <div class="widget widget_social">
+                <h3 class="widget_title">Find Us</h3>
+                <ul>
+                    <li class="facebook-fans">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-facebook"></i>
+                                <span>5,000</span><br>
+                                <small>People like it</small>
+                            </strong>
+                        </a>
+                    </li>
+                    <li class="twitter-followers">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-twitter"></i>
+                                <span>3,000</span><br>
+                                <small>Followers</small>
+                            </strong>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
             <div class="widget widget_tag_cloud">
                 <h3 class="widget_title">Top Subjects</h3>
                 <a href="#">projects</a>
@@ -186,96 +154,31 @@
                 <a href="#">vbegy</a>
             </div>
 
-
-
         </aside>
-
-
-        </div>
-
-
-
-
-
-
-
-
 
     </div>
 
 </section>
 
-    <!--<div class="col-md-3">
-
-        <h3 class="create--account">Do you have question<a href="#">Log in </a></h3>-->
-    <!--<span style="font-family:Arial;font-size:16px;color:#4A4A4A;">Forget Password  </span>-->
-    <!--</div>-->
-    <!--<div class="col-md-7">-->
-    <!--<form>-->
-    <!--<div class="row">-->
-    <!--<div class="col-md-3 pull-right">
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            {{selectedSubject}}
-            <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li ng-repeat="a in subjects"><a ng-click="selectSubject(a.Name,a.Id)">{{a.Name}}</a></li>
-            </ul>
+    <script type="text/ng-template" id="QA97LoginAlert.html">
+ 
+        <div class="modal-header">
+            <h3 class="modal-title">Login to QA97</h3>
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            {{selectedClass}}
-            <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li ng-repeat="a in classes"><a ng-click="selectClass(a.Name,a.Id)">{{a.Name}}</a></li>
-            </ul>
-        </div>
-    </div>-->
-    <!--</div>-->
-    <!--<div>
-          <div id="name-group" class="question">
-                <input type="text"
-                name="questiontext"
-                ng-model="questiontitle"
-                ng-keypress="clearemailstatusmessage()"
-                class="form-control"
-                placeholder="Title of the Question">
-
-                <span class="help-block">{{questiontitleerrormessage}}</span>
+        <div class="modal-body">
+            <div class="alert-message error">
+                <i class="icon-flag">::before</i>
+                <p><span>You must login to QA97 to ask questions</span></p>
             </div>
-            <div id="loading">
-            <progress id="pbar" value="0" style="display:none"></progress>
          </div>
-        <div id="name-group" class="form-group">
-            <div class="row">
-                <div text-angular ng-model="questionDetailRichText"></div>
-                <span class="help-block">{{questiondetailerrormessage}}</span>
-            </div>
-            <div class="row">
-              <div class="col-md-8">
-                <select data-ng-model="selectedSubject" ng-options="s.Name for s in subjects">
-
-                </select>
-                <select data-ng-model="selectedClass" ng-options="c.Name for c in classes">
-
-            </select>
+        <div class="modal-footer">
+            <p class="form-submit">
+                <button class="button color medium submit" type="button" ng-click="ok()">Ok</button>
+                <button class="button color small dark_button" type="button" ng-click="cancel()">Cancel</button>
+            </p>
+          
         </div>
-                <div class="col-md-4">
-                    <button type="submit" ng-click="AskQuestions()" class="btn btn-lg btn-info">Post your Question</button>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!--<div ng-show="flagaddquestion" class="alert alert-danger fade in">
+</script>
 
-        <strong>Ooops!</strong> A problem has been occurred adding Question.
-    </div>-->
-    <!--</form>
-        </div>
 
-    </div>
-    </div>-->
+

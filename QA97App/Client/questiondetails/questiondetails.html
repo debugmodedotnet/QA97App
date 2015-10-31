@@ -67,7 +67,7 @@
                                     <div class="comment-meta">
                                         <div class="date"><i class="icon-time"></i>{{q.CreatedDate | date:"MMM d, y 'at' h:mma"}}</div>
                                     </div>
-                                    <a class="comment-reply" href="#"><i class="icon-download"></i>Download</a>
+                                    <a class="comment-reply" ng-click="savetoPDF(question,q.AnswerDetailRichText)" href=""><i class="icon-download"></i>Download</a>
                                 </div>
                                 <div class="text" ng-model="svdiv">
                                     <div ng-bind-html="q.AnswerDetailRichText">

@@ -1,7 +1,7 @@
 ﻿/// <reference path="C:\Work\Project\HTApp\HTApp\HTApp\Scripts/angular.js" />
 'use strict';
 
-var askquestion = angular.module('QA97App.askquestion', ['ngRoute','textAngular']);
+var askquestion = angular.module('QA97App.askquestion', ['ngRoute', 'textAngular', 'LocalStorageModule', 'igniteui-directives']);
 
 askquestion.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/askquestion', {
@@ -11,7 +11,7 @@ askquestion.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-askquestion.controller('AskQuestionController', function ($scope, $location, $rootScope, TeacherService) {
+askquestion.controller('AskQuestionController', function ($scope, $location, $rootScope, TeacherService, localStorageService, $modal) {
     
    
     $scope.questiontitleerrormessage;
@@ -19,6 +19,7 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
     $scope.flagaddquestion = false;
     $scope.userid = undefined;
     $scope.questiontitle = $rootScope.qtitle;
+    //$scope.loginflagclass = undefined;
     //$scope.subjectId = undefined;
     //$scope.selectedSubject = "Select Subject";
     //$scope.selectSubject = function (name, id) {
@@ -34,11 +35,11 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
     //    $scope.selectedClass = name;
     //    $scope.classId = id;
     //}
-    $scope.navigatetoquestiondetails = function (id) {
+    //$scope.navigatetoquestiondetails = function (id) {
 
 
-        $location.path('/questiondetails/' + id);
-    }
+    //    $location.path('/questiondetails/' + id);
+    //}
 
     $scope.selectedSubject = {};
     $scope.selectedClass = {};
@@ -52,7 +53,7 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
 
             })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load class data: ' + error.message;
 
             });
     };
@@ -86,21 +87,32 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
 
 
 
+    $scope.isQuestionSaved = localStorageService.get("questionToAskSaved");
+
+    if ($scope.isQuestionSaved) {
+      //  alert("hahah");
+        $scope.k = angular.fromJson($scope.isQuestionSaved);
+    //    alert($scope.k);
+        $scope.questiontitle = $scope.k.QuestionTitle;
+     //   alert($scope.questiontitle);
+        $scope.questionDetailRichText = $scope.k.QuestionDetailRichText;
+        $scope.selectedClass.Id = $scope.k.ClassId;
+        $scope.selectedSubject.Id = $scope.k.SubjectId;
+    }
+
+
+
+
+
     $scope.AskQuestions = function () {
 
-       
 
-       // $rootScope.isLoggedIn = $scope.k.isLoggedIn;
-       // $rootScope.userName = $scope.k.userName;
-
-        if ($rootScope.isLoggedIn)
-        {
 
 
             if ($scope.questiontitle) {
                 if ($scope.questionDetailRichText) {
 
-                    var questionToAsk = {
+                   $scope.questionToAsk = {
                         QuestionTitle: $scope.questiontitle,
                         ClassId: $scope.selectedClass.Id,
                         SubjectId: $scope.selectedSubject.Id,
@@ -118,7 +130,11 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
                     //    QuestionDetail: $scope.questiondetail
 
                     //};
-                    TeacherService.addQuestions(questionToAsk)
+
+
+                   if ($rootScope.isLoggedIn) {
+
+                    TeacherService.addQuestions($scope.questionToAsk)
                        .success(function () {
 
                            alert("question added");                          
@@ -126,6 +142,36 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
                        error(function (error) {
                            $scope.flagaddquestion = true;
                        });
+
+
+
+                }
+
+                else {
+
+                    if (localStorageService.isSupported) {
+                        localStorageService.set('questionToAskSaved', angular.toJson($scope.questionToAsk));                       
+
+                    }
+                    else {
+                        alert('something went wrong');
+                    }
+                    var modalInstance = $modal.open({
+                        animation: true,
+                        templateUrl: 'QA97LoginAlert.html',
+                        controller: 'QA97LoginAlertController',
+                        size: '',
+                        //resolve: {
+                        //    items: function () {
+
+                        //        return $scope.questionToAsk;
+                        //    }
+                        //}
+                    });
+
+                }
+
+
 
                 }
                 else {
@@ -137,19 +183,35 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
                 $scope.questiontitleerrormessage = "Please enter question title";
             }
 
-        }
+       
 
-        else
-        {
-            alert("Please logged in to ask question");
-        }
+
+ }
         
-
-    }
+   
 
    
     $scope.htmlToPlaintext= function htmlToPlaintext(text) {
         return String(text).replace(/<[^>]+>/gm, '');
     }
 
+
 });
+
+askquestion.controller('QA97LoginAlertController', function ($scope, $modalInstance, $location) {
+
+  
+   // $scope.a = items;
+    $scope.ok = function () {
+
+       
+
+      
+        $location.path('/login');
+        $modalInstance.dismiss('cancel');
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+})

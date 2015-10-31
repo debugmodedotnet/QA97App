@@ -98,7 +98,9 @@ questiondetails.controller('QuestionDetailsController', function ($scope, $locat
                        .success(function (ans) {
                            alert("answer added");
                            $scope.answerDetailRichText = undefined;
-                           $scope.answers.push(ans);
+                           //ans.UserName = $rootScope.userName;
+                           //$scope.answers.push(ans);
+                           getAnswers($scope.qid);
 
                        }).
                        error(function (error) {
