@@ -100,90 +100,36 @@
 
         </div>
         <aside class="col-md-3 sidebar">
-            <div class="widget widget_stats">
-                <h3 class="widget_title">Stats</h3>
-                <div class="ul_list ul_list-icon-ok">
-                    <ul>
-                        <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
-                        <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="widget widget_login">
-                <h3 class="widget_title">Login</h3>
-                <div class="form-style form-style-2">
-                    <form>
-                        <div class="form-inputs clearfix">
-                            <p class="login-text">
-                                <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
-                                <i class="icon-user"></i>
-                            </p>
-                            <p class="login-password">
-                                <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
-                                <i class="icon-lock"></i>
-                                <a href="#">Forget</a>
-                            </p>
-                        </div>
-                        <p class="form-submit login-submit">
-                            <input type="submit" value="Log in" class="button color small login-submit submit">
-                        </p>
-                        <div class="rememberme">
-                            <label><input type="checkbox" checked="checked"> Remember Me</label>
-                        </div>
-                    </form>
-                    <ul class="login-links login-links-r">
-                        <li><a href="#">Register</a></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-
-            <div class="widget widget_social">
-                <h3 class="widget_title">Find Us</h3>
+            <!--<div class="widget widget_stats">
+            <h3 class="widget_title">Stats</h3>
+            <div class="ul_list ul_list-icon-ok">
                 <ul>
-                    <!--<li class="rss-subscribers">
-                        <a href="#" target="_blank">
+                    <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
+                    <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
+                </ul>
+            </div>
+        </div>-->
+
+
+
+
+            <div class="widget widget_social loginwidgetrotate" ng-hide="isLoggedIn">
+                <h3 class="widget_title">Login</h3>
+                <ul>
+                    <li class="youtube-subs ">
+                        <a href="">
                             <strong>
-                                <i class="icon-rss"></i>
-                                <span>Subscribe</span><br>
-                                <small>To RSS Feed</small>
-                            </strong>
-                        </a>
-                    </li>-->
-                    <li class="facebook-fans">
-                        <a href="#" target="_blank">
-                            <strong>
-                                <i class="social_icon-facebook"></i>
-                                <span>5,000</span><br>
-                                <small>People like it</small>
-                            </strong>
-                        </a>
-                    </li>
-                    <li class="twitter-followers">
-                        <a href="#" target="_blank">
-                            <strong>
-                                <i class="social_icon-twitter"></i>
-                                <span>3,000</span><br>
-                                <small>Followers</small>
+                                <i class="icon-user-md"></i>
+                                <span>Login</span><br>
+                                <small>To Ask Questions</small>
                             </strong>
                         </a>
                     </li>
-                    <!--<li class="youtube-subs">
-                        <a href="#" target="_blank">
-                            <strong>
-                                <i class="icon-play"></i>
-                                <span>1,000</span><br>
-                                <small>Subscribers</small>
-                            </strong>
-                        </a>
-                    </li>-->
                 </ul>
             </div>
 
-           
 
-            <div class="widget widget_highest_points">
+            <div class="widget widget_highest_points" ng-show="isLoggedIn">
                 <h3 class="widget_title">Star Students</h3>
                 <ul>
                     <li>
@@ -210,6 +156,31 @@
                 </ul>
             </div>
 
+            <div class="widget widget_social">
+                <h3 class="widget_title">Find Us</h3>
+                <ul>
+                    <li class="facebook-fans">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-facebook"></i>
+                                <span>5,000</span><br>
+                                <small>People like it</small>
+                            </strong>
+                        </a>
+                    </li>
+                    <li class="twitter-followers">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-twitter"></i>
+                                <span>3,000</span><br>
+                                <small>Followers</small>
+                            </strong>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
             <div class="widget widget_tag_cloud">
                 <h3 class="widget_title">Top Subjects</h3>
                 <a href="#">projects</a>
@@ -221,8 +192,6 @@
                 <a href="#">2code</a>
                 <a href="#">vbegy</a>
             </div>
-
-           
 
         </aside>
     </div>

@@ -89,12 +89,9 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
 
     $scope.isQuestionSaved = localStorageService.get("questionToAskSaved");
 
-    if ($scope.isQuestionSaved) {
-      //  alert("hahah");
-        $scope.k = angular.fromJson($scope.isQuestionSaved);
-    //    alert($scope.k);
-        $scope.questiontitle = $scope.k.QuestionTitle;
-     //   alert($scope.questiontitle);
+    if ($scope.isQuestionSaved) {    
+        $scope.k = angular.fromJson($scope.isQuestionSaved);    
+        $scope.questiontitle = $scope.k.QuestionTitle;   
         $scope.questionDetailRichText = $scope.k.QuestionDetailRichText;
         $scope.selectedClass.Id = $scope.k.ClassId;
         $scope.selectedSubject.Id = $scope.k.SubjectId;
@@ -102,6 +99,33 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
 
 
 
+  var  onRouteChangeOff = $scope.$on('$locationChangeStart', routeChange);
+
+
+
+    function routeChange()
+    {
+       // alert('hiding');
+        $scope.questionToAsk = {
+            QuestionTitle: $scope.questiontitle,
+            ClassId: $scope.selectedClass.Id,
+            SubjectId: $scope.selectedSubject.Id,
+            UserId: $rootScope.userName,
+            QuestionDetailRichText: $scope.questionDetailRichText,
+            QuestionDetailPlainText: $scope.htmlToPlaintext($scope.questionDetailRichText),
+
+
+        };
+
+        if (localStorageService.isSupported) {
+            localStorageService.set('questionToAskSaved', angular.toJson($scope.questionToAsk));
+
+        }
+        else {
+            alert('something went wrong');
+        }
+
+    }
 
 
     $scope.AskQuestions = function () {
@@ -137,7 +161,14 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
                     TeacherService.addQuestions($scope.questionToAsk)
                        .success(function () {
 
-                           alert("question added");                          
+                           alert("question added");
+
+                           localStorageService.remove("questionToAskSaved");
+                           $scope.questiontitle = undefined;
+                           $scope.questionDetailRichText = undefined;
+                           $scope.selectedClass.Id = undefined;
+                           $scope.selectedSubject.Id = undefined;
+
                        }).
                        error(function (error) {
                            $scope.flagaddquestion = true;
@@ -195,18 +226,25 @@ askquestion.controller('AskQuestionController', function ($scope, $location, $ro
         return String(text).replace(/<[^>]+>/gm, '');
     }
 
+    $scope.navigateToQuestion = function()
+    {
+        $rootScope.redirectsourceview = '/askquestion';
+        $location.path('/login');
+    }
+
 
 });
 
-askquestion.controller('QA97LoginAlertController', function ($scope, $modalInstance, $location) {
+askquestion.controller('QA97LoginAlertController', function ($scope, $modalInstance, $location, $rootScope) {
 
   
    // $scope.a = items;
     $scope.ok = function () {
 
        
-
-      
+        alert("Hi");
+        $rootScope.redirectsourceview = '/askquestion'
+        alert($rootScope.redirectsourceview);
         $location.path('/login');
         $modalInstance.dismiss('cancel');
     };

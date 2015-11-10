@@ -40,7 +40,21 @@ MyApp.config(function (localStorageServiceProvider) {
 });
 
 MyApp.controller('HomeController', function ($scope, $location, $rootScope, TeacherService) {
+
+    $rootScope.redirectsourceview = '/Home';
    
+    $scope.navigatetoquestiondetails = function (id) {
+
+
+        $location.path('/questiondetails/' + id);
+    }
+
+    $scope.navigatetoaskquestion = function () {
+
+
+        $location.path('/askquestion');
+    }
+
    
     $scope.navigateToSearch = function () {
         
@@ -100,6 +114,10 @@ MyApp.controller('MenuController', function ($scope, $location, $rootScope, $mod
     // $scope.isUserLoggedIn = false;
     // $scope.loggedInUserName = undefined;
 
+
+
+
+ 
 
     $scope.usercss = 'skins';
 

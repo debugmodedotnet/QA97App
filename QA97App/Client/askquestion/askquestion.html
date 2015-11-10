@@ -38,17 +38,19 @@
                     <div class="clearfix"></div>
 
                     <p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span class="styled-select">
+                                    <select data-ng-model="selectedSubject" ng-options="act.Name for act in subjects"></select>
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="styled-select">
+                                    <select data-ng-model="selectedClass" ng-options="act.Name for act in classes"></select>
+                                </span>
+                            </div>
+                        </div>
 
-                        <span class="styled-select">
-                            <select data-ng-model="selectedSubject" ng-options="act.Name for act in subjects"></select>
-                        </span>
-
-
-                    </p>
-                    <p>
-                        <span class="styled-select">
-                            <select data-ng-model="selectedClass" ng-options="act.Name for act in classes"></select>
-                        </span>
                     </p>
                     <p>
                         <input type="submit" ng-click="AskQuestions()" class="button color large submit" value="Post your Question" />
@@ -78,7 +80,7 @@
                 <h3 class="widget_title">Login</h3>
                 <ul>
                     <li class="youtube-subs ">
-                        <a href="">
+                        <a href="" ng-click="navigateToQuestion()">
                             <strong>
                                 <i class="icon-user-md"></i>
                                 <span>Login</span><br>

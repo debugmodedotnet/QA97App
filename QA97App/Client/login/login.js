@@ -13,7 +13,7 @@ login.config(['$routeProvider', function ($routeProvider) {
 
 login.controller('LoginController', function ($scope, $rootScope, $location, TeacherService, localStorageService) {
 
-   
+    alert($rootScope.redirectsourceview);
     $scope.loginerrormessage = undefined;
     $scope.loginerrorflag = false;
     $scope.isLoggedIn = false;
@@ -40,7 +40,7 @@ login.controller('LoginController', function ($scope, $rootScope, $location, Tea
                        $scope.token = data.access_token;
                        $scope.username = data.userName;
                        $scope.isLoggedIn = true; 
-                       alert($scope.token);
+                      // alert($scope.token);
                        $scope.loggedInUser = {
                            token: $scope.token,
                            userName: $scope.username,
@@ -49,7 +49,10 @@ login.controller('LoginController', function ($scope, $rootScope, $location, Tea
                        if (localStorageService.isSupported) {
                            localStorageService.set('loggedInUser', angular.toJson($scope.loggedInUser));
                            $rootScope.isLoggedIn = true;
-                           $rootScope.userName = $scope.username;                          
+                           $rootScope.userName = $scope.username;
+                           alert($rootScope.redirectsourceview);
+                           $location.path($rootScope.redirectsourceview);
+                           
                            
                        }
                        else

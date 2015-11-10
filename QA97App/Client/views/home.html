@@ -13,7 +13,7 @@
                         <p>
                             <input type="text" id="question_title" value="Ask any question and you be sure find your answer ?" onfocus="if(this.value=='Ask any question and you be sure find your answer ?')this.value='';" onblur="if(this.value=='')this.value='Ask any question and you be sure find your answer ?';">
                             <i class="icon-pencil"></i>
-                            <span class="color button small publish-question">Login to Ask Now</span>
+                            <span class="color button small publish-question" ng-click="navigatetoaskquestion()">Login to Ask Now</span>
                         </p>
                     </form>
              
@@ -98,7 +98,7 @@
 
                                     <article class="question question-type-normal">
                                         <h2>
-                                            <a href="single_question.html">{{q.Title}}</a>
+                                            <a href="" ng-click="navigatetoquestiondetails(q.Id)">{{q.Title}}</a>
                                         </h2>
                                         <a class="question-report" href="#">{{q.SubjectName}}</a>
 

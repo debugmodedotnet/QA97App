@@ -67,12 +67,16 @@
                                     <div class="comment-meta">
                                         <div class="date"><i class="icon-time"></i>{{q.CreatedDate | date:"MMM d, y 'at' h:mma"}}</div>
                                     </div>
-                                    <a class="comment-reply" ng-click="savetoPDF(question,q.AnswerDetailRichText)" href=""><i class="icon-download"></i>Download</a>
+                                    <a class="comment-reply" ng-click="savetoPDF(question,q.AnswerDetailRichText)" href="">
+                                    <i class="icon-download"></i>Download
+                                    </a>
+                                   
                                 </div>
                                 <div class="text" ng-model="svdiv">
                                     <div ng-bind-html="q.AnswerDetailRichText">
                                     </div>
                                 </div>
+                                <!--<button class="button color small_arrow_dowm">Mark as Answer</button>-->
                             </div>
                         </div>
                     </li>
@@ -95,90 +99,36 @@
         </div>
 
         <aside class="col-md-3 sidebar">
-            <div class="widget widget_stats">
-                <h3 class="widget_title">Stats</h3>
-                <div class="ul_list ul_list-icon-ok">
-                    <ul>
-                        <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
-                        <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="widget widget_login">
-                <h3 class="widget_title">Login</h3>
-                <div class="form-style form-style-2">
-                    <form>
-                        <div class="form-inputs clearfix">
-                            <p class="login-text">
-                                <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
-                                <i class="icon-user"></i>
-                            </p>
-                            <p class="login-password">
-                                <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
-                                <i class="icon-lock"></i>
-                                <a href="#">Forget</a>
-                            </p>
-                        </div>
-                        <p class="form-submit login-submit">
-                            <input type="submit" value="Log in" class="button color small login-submit submit">
-                        </p>
-                        <div class="rememberme">
-                            <label><input type="checkbox" checked="checked"> Remember Me</label>
-                        </div>
-                    </form>
-                    <ul class="login-links login-links-r">
-                        <li><a href="#">Register</a></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-
-            <div class="widget widget_social">
-                <h3 class="widget_title">Find Us</h3>
+            <!--<div class="widget widget_stats">
+            <h3 class="widget_title">Stats</h3>
+            <div class="ul_list ul_list-icon-ok">
                 <ul>
-                    <!--<li class="rss-subscribers">
-                    <a href="#" target="_blank">
-                        <strong>
-                            <i class="icon-rss"></i>
-                            <span>Subscribe</span><br>
-                            <small>To RSS Feed</small>
-                        </strong>
-                    </a>
-                </li>-->
-                    <li class="facebook-fans">
-                        <a href="#" target="_blank">
+                    <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
+                    <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
+                </ul>
+            </div>
+        </div>-->
+
+
+
+
+            <div class="widget widget_social loginwidgetrotate" ng-hide="isLoggedIn">
+                <h3 class="widget_title">Login</h3>
+                <ul>
+                    <li class="youtube-subs ">
+                        <a href="" ng-click="navigateToQuestion()">
                             <strong>
-                                <i class="social_icon-facebook"></i>
-                                <span>5,000</span><br>
-                                <small>People like it</small>
+                                <i class="icon-user-md"></i>
+                                <span>Login</span><br>
+                                <small>To Answer Question</small>
                             </strong>
                         </a>
                     </li>
-                    <li class="twitter-followers">
-                        <a href="#" target="_blank">
-                            <strong>
-                                <i class="social_icon-twitter"></i>
-                                <span>3,000</span><br>
-                                <small>Followers</small>
-                            </strong>
-                        </a>
-                    </li>
-                    <!--<li class="youtube-subs">
-                    <a href="#" target="_blank">
-                        <strong>
-                            <i class="icon-play"></i>
-                            <span>1,000</span><br>
-                            <small>Subscribers</small>
-                        </strong>
-                    </a>
-                </li>-->
                 </ul>
             </div>
 
 
-
-            <div class="widget widget_highest_points">
+            <div class="widget widget_highest_points" ng-show="isLoggedIn">
                 <h3 class="widget_title">Star Students</h3>
                 <ul>
                     <li>
@@ -205,6 +155,31 @@
                 </ul>
             </div>
 
+            <div class="widget widget_social">
+                <h3 class="widget_title">Find Us</h3>
+                <ul>
+                    <li class="facebook-fans">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-facebook"></i>
+                                <span>5,000</span><br>
+                                <small>People like it</small>
+                            </strong>
+                        </a>
+                    </li>
+                    <li class="twitter-followers">
+                        <a href="#" target="_blank">
+                            <strong>
+                                <i class="social_icon-twitter"></i>
+                                <span>3,000</span><br>
+                                <small>Followers</small>
+                            </strong>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
             <div class="widget widget_tag_cloud">
                 <h3 class="widget_title">Top Subjects</h3>
                 <a href="#">projects</a>
@@ -217,8 +192,46 @@
                 <a href="#">vbegy</a>
             </div>
 
-
-
         </aside>
     </div>
 </section>
+
+<script type="text/ng-template" id="QA97LoginAlert.html">
+
+    <div class="modal-header">
+        <h3 class="modal-title">Login to QA97</h3>
+    </div>
+    <div class="modal-body">
+        <div class="alert-message error">
+            <i class="icon-flag">::before</i>
+            <p><span>You must login to QA97 to answer question</span></p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <p class="form-submit">
+            <button class="button color medium submit" type="button" ng-click="ok()">Ok</button>
+            <button class="button color small dark_button" type="button" ng-click="cancel()">Cancel</button>
+        </p>
+
+    </div>
+</script>
+
+<script type="text/ng-template" id="QA97Alert.html">
+
+    <div class="modal-header">
+        <h3 class="modal-title">QA97 Leave Page ?</h3>
+    </div>
+    <div class="modal-body">
+        <div class="alert-message error">
+            <i class="icon-flag"></i>
+            <p><span>You have not finished your answer yet.Do you want to leave without answering?</span></p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <p class="form-submit">
+            <button class="button color medium submit" type="button" ng-click="ok()">Yes</button>
+            <button class="button color small dark_button" type="button" ng-click="cancel()">No</button>
+        </p>
+
+    </div>
+</script>

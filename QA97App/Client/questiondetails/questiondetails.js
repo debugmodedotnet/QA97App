@@ -1,7 +1,7 @@
 ﻿/// <reference path="C:\Work\Project\HTApp\HTApp\HTApp\Scripts/angular.js" />
 'use strict';
 
-var questiondetails = angular.module('QA97App.questiondetails', ['ngRoute']);
+var questiondetails = angular.module('QA97App.questiondetails', ['ngRoute', 'LocalStorageModule']);
 
 register.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/questiondetails/:id', {
@@ -10,8 +10,8 @@ register.config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
-questiondetails.controller('QuestionDetailsController', function ($scope, $location, $rootScope, $routeParams, TeacherService, localStorageService) {
-    $rootScope.bodystyle = 'bodywithoutimage';
+questiondetails.controller('QuestionDetailsController', function ($scope, $location, $rootScope, $routeParams, TeacherService, localStorageService, $modal) {
+   
     $scope.loggedInData = angular.fromJson(localStorageService.get("loggedInUser"));
     $scope.qid = $routeParams.id;
     $scope.question;
@@ -53,6 +53,76 @@ questiondetails.controller('QuestionDetailsController', function ($scope, $locat
     };
 
 
+
+
+    $scope.isAnswerSaved = localStorageService.get("answerSaved");
+
+    if ($scope.isAnswerSaved) {
+        $scope.k = angular.fromJson($scope.isAnswerSaved);       
+        $scope.answerDetailRichText = $scope.k.AnswerDetailRichText;
+        $scope.htmlToPlaintext = $scope.k.AnswerDetailPlainText;
+        
+    }
+
+
+    $rootScope.onRouteChangeOff = $scope.$on('$locationChangeStart', routeChange);
+
+
+
+    function routeChange(event, newUrl, oldUrl) {
+       
+       
+        if ($rootScope.isLoggedIn) {
+
+            if (localStorageService.questionToAskSaved)
+            {
+                localStorageService.remove("questionToAskSaved");
+            }
+            
+
+            var modalInstance = $modal.open({
+                animation: true,
+                templateUrl: 'QA97Alert.html',
+                controller: 'QA97AlertController',
+                size: '',
+                resolve: {
+                    item: function () {
+
+                        return newUrl;
+                    }
+                }
+            });
+
+
+            event.preventDefault();
+        }
+        //else
+        //{
+
+        //    var answerToAdd = {
+        //        QuestionId: $scope.qid,
+        //        UserId: $rootScope.userName,
+        //        AnswerDetailRichText: $scope.answerDetailRichText,
+        //        AnswerDetailPlainText: $scope.htmlToPlaintext($scope.answerDetailRichText)
+        //    };
+
+        //    if (localStorageService.isSupported) {
+        //        localStorageService.set('answerSaved', angular.toJson($scope.answerToAdd));
+
+        //    }
+        //    else {
+        //        alert('something went wrong');
+        //    }
+
+        //}
+        //return;
+        
+
+    }
+
+
+
+
     $scope.markasAnswer = function (answerId, userId) {
 
         $scope.answerId = answerId;
@@ -79,21 +149,24 @@ questiondetails.controller('QuestionDetailsController', function ($scope, $locat
 
     }
 
+
+
+
     $scope.AddAnswer = function () {
 
 
-
-        // $rootScope.isLoggedIn = $scope.k.isLoggedIn;
-        // $rootScope.userName = $scope.k.userName;
+         $scope.answerToAdd = {
+            QuestionId: $scope.qid,
+            UserId: $rootScope.userName,
+            AnswerDetailRichText: $scope.answerDetailRichText,
+            AnswerDetailPlainText: $scope.htmlToPlaintext($scope.answerDetailRichText)
+        };
 
         if ($rootScope.isLoggedIn) {
 
-            var answerToAdd = {
-                QuestionId: $scope.qid,
-                UserId: $rootScope.userName,
-                AnswerDetailRichText: $scope.answerDetailRichText,
-                AnswerDetailPlainText: $scope.htmlToPlaintext($scope.answerDetailRichText)
-            };
+           
+
+          
             TeacherService.addAnswer(answerToAdd)
                        .success(function (ans) {
                            alert("answer added");
@@ -108,7 +181,28 @@ questiondetails.controller('QuestionDetailsController', function ($scope, $locat
                        });
         }
         else {
-            alert("Please logged in to ask question");
+
+            if (localStorageService.isSupported) {
+                alert($scope.answerToAdd);
+                localStorageService.set('answerSaved', angular.toJson($scope.answerToAdd));
+
+            }
+            else {
+                alert('something went wrong');
+            }
+            var modalInstance = $modal.open({
+                animation: true,
+                templateUrl: 'QA97LoginAlert.html',
+                controller: 'QA97AnswerLoginAlertController',
+                size: '',
+                //resolve: {
+                //    items: function () {
+
+                //        return $scope.questionToAsk;
+                //    }
+                //}
+            });
+
         }
     }
 
@@ -246,4 +340,50 @@ questiondetails.controller('QuestionDetailsController', function ($scope, $locat
         });
     };
 
+    $scope.navigateToQuestion = function () {
+
+
+        $rootScope.redirectsourceview = '/questiondetails/' + $scope.qid;
+        $location.path('/login');
+    }
+
 });
+
+
+questiondetails.controller('QA97AnswerLoginAlertController', function ($scope, $modalInstance, $location, $rootScope, $routeParams) {
+
+
+    // $scope.a = items;
+    $scope.ok = function () {
+
+        $rootScope.redirectsourceview = '/questiondetails/' + $routeParams.id;
+        $location.path('/login');
+        $modalInstance.dismiss('cancel');
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+})
+
+questiondetails.controller('QA97AlertController', function ($scope,item, $modalInstance, $location, $rootScope, $routeParams) {
+
+
+ 
+    $scope.ok = function () {
+        $rootScope.onRouteChangeOff();
+       // var a = item.$$route;
+       // alert(item);
+        var routetonavigate = $location.url(item).hash();
+      //  alert(routetonavigate);
+        $location.path(routetonavigate);
+        $modalInstance.dismiss('cancel');
+       
+    };
+
+    $scope.cancel = function () {
+       
+        $modalInstance.dismiss('cancel');
+       
+    };
+})
