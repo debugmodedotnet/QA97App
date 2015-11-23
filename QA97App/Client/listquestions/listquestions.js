@@ -8,9 +8,19 @@ askquestion.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'listquestions/listquestions.html',
         controller: 'ListQuestionsController'
     });
+
+    $routeProvider.when('/QuestionsBySubject/:subject', {
+        templateUrl: 'listquestions/listquestions.html',
+        controller: 'ListQuestionsController'
+    });
+
+    $routeProvider.when('/QuestionsByGrade/:grade', {
+        templateUrl: 'listquestions/listquestions.html',
+        controller: 'ListQuestionsController'
+    });
 }]);
 
-listquestions.controller('ListQuestionsController', function ($scope, $location, $rootScope, TeacherService) {
+listquestions.controller('ListQuestionsController', function ($scope, $location, $routeParams, $rootScope, TeacherService) {
 
     $scope.score;
     $scope.isLoadMoreButtonDisabled = false;
@@ -18,8 +28,17 @@ listquestions.controller('ListQuestionsController', function ($scope, $location,
     $scope.questiondetailerrormessage;
     $scope.flagaddquestion = false;
     $scope.userid = '45c14c05-1d53-4ae5-a93d-b23d5e22f768';
-    $scope.gid = -1;
-    $scope.sid = -1;
+
+    if ($routeParams.grade == undefined)
+        $scope.gid = -1;
+    else
+        $scope.gid = $routeParams.grade;
+
+    if ($routeParams.subject == undefined)
+        $scope.sid = -1;
+    else
+        $scope.sid = $routeParams.subject;
+
     $scope.pageno = 1;
     $scope.pagesize = 10;
     $scope.questiontitle = $rootScope.qtitle;

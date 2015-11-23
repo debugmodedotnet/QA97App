@@ -5,6 +5,26 @@
 	border: 1px solid #EEE;
 }
 
+.ng-binding ul li{
+    margin-left:20px;
+    list-style-type:circle;
+}
+
+.ng-binding ol li{
+    margin-left:20px;
+    list-style-type:upper-roman;
+}
+
+.ta-bind ul li{
+    margin-left:20px;
+    list-style-type:circle;
+}
+
+.ta-bind ol li{
+    margin-left:20px;
+    list-style-type:upper-roman;
+}
+
 .ta-toolbar .btn-group {
 	margin-bottom: 5px;
 }

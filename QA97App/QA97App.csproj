@@ -907,6 +907,8 @@
     <Content Include="Content\Font-Awesome-master\src\_plugins\site.rb" />
     <Content Include="Content\Font-Awesome-master\_config.yml" />
     <Content Include="Content\font-awesome.css.map" />
+    <None Include="Properties\PublishProfiles\qa97app - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\qa97app - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

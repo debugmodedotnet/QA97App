@@ -13,7 +13,9 @@
                         <p>
                             <input type="text" id="question_title" value="Ask any question and you be sure find your answer ?" onfocus="if(this.value=='Ask any question and you be sure find your answer ?')this.value='';" onblur="if(this.value=='')this.value='Ask any question and you be sure find your answer ?';">
                             <i class="icon-pencil"></i>
-                            <span class="color button small publish-question" ng-click="navigatetoaskquestion()">Login to Ask Now</span>
+                            <span ng-show="{{$root.userName === undefined}}" class="color button small publish-question" ng-click="navigatetoaskquestion()">Login to Ask Now</span>
+                            <span ng-hide="{{$root.userName === undefined}}" class="color button small publish-question" ng-click="navigatetoaskquestion()">Ask Now</span>
+
                         </p>
                     </form>
              
@@ -100,7 +102,7 @@
                                         <h2>
                                             <a href="" ng-click="navigatetoquestiondetails(q.Id)">{{q.Title}}</a>
                                         </h2>
-                                        <a class="question-report" href="#">{{q.SubjectName}}</a>
+                                        <a class="question-report" href="#/QuestionsBySubject/{{q.SubjectId}}">{{q.SubjectName}}</a>
 
                                         <div class="question-author">
                                             <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="{{q.UserImage}}"></a>
@@ -112,7 +114,7 @@
                                                 <span class="question-answered"><i class="icon-ok"></i>in progress</span>
 
                                             </div>
-                                            <span class="question-category"><a href="#"><i class="icon-folder-close"></i>{{q.ClassName}}</a></span>
+                                            <span class="question-category"><a href="#/QuestionsByGrade/{{q.ClassId}}"><i class="icon-folder-close"></i>{{q.ClassName}}</a></span>
                                             <span class="question-date"><i class="icon-time"></i>{{q.CreatedDate| date:"MMM d, y 'at' h:mma"}}</span>
                                             <span class="question-comment"><a href="#"><i class="icon-comment"></i>{{q.NumberOfAnswers}} Answers</a></span>
                                             <span class="question-view"><i class="icon-user"></i>{{q.Score}} votes</span>

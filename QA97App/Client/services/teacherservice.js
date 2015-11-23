@@ -19,7 +19,12 @@ HTAppServiceModule.service('LogedinUserService', function () {
 
 HTAppServiceModule.factory('TeacherService', ['$http', function ($http) {
 
-    var urlBase = 'http://localhost:8458/api';
+    //choosing API url for localhost testing and Azure
+    if (window.location.host == "qa97app.azurewebsites.net")
+        var urlBase = 'http://qa97service.azurewebsites.net/api';
+    else
+        var urlBase = 'http://localhost:8458/api';
+
     var TeacherService = {};
 
     TeacherService.getSubjects = function () {
@@ -61,7 +66,7 @@ HTAppServiceModule.factory('TeacherService', ['$http', function ($http) {
 
         var request = $http({
             method: 'post',
-            url: 'http://localhost:8458/Token',
+            url: 'http://qa97service.azurewebsites.net/Token',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             data: transformRequest(data)
         });
@@ -125,20 +130,11 @@ HTAppServiceModule.factory('TeacherService', ['$http', function ($http) {
         return $http.get(urlBase + '/UserImages/GetParticularUserImage?username=' + id);
     }
 
-    TeacherService.getUserProfile = function (token) {
-        alert(token);
-        var a = urlBase + '/account/userinfo';
-        alert(a);
-        var request = $http({
-            method: 'get',
-            url: urlBase + '/account/userinfo',
-            headers: { 'Authorization': 'bearer ' + token }
-        });
-        return request;
+    TeacherService.getUserProfile = function (id) {
+        return $http.get(urlBase + '/Account/GetUserInfoCustom?id=' + id);
     };
 
     TeacherService.changePassword = function (data, token) {
-
         var request = $http({
             method: 'post',
             headers: { 'Authorization': 'bearer ' + token },

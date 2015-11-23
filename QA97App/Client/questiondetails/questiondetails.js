@@ -79,22 +79,24 @@ questiondetails.controller('QuestionDetailsController', function ($scope, $locat
                 localStorageService.remove("questionToAskSaved");
             }
             
+            if ($scope.answerDetailRichText.length > 0) {
 
-            var modalInstance = $modal.open({
-                animation: true,
-                templateUrl: 'QA97Alert.html',
-                controller: 'QA97AlertController',
-                size: '',
-                resolve: {
-                    item: function () {
+                var modalInstance = $modal.open({
+                    animation: true,
+                    templateUrl: 'QA97Alert.html',
+                    controller: 'QA97AlertController',
+                    size: '',
+                    resolve: {
+                        item: function () {
 
-                        return newUrl;
+                            return newUrl;
+                        }
                     }
-                }
-            });
+                });
 
 
-            event.preventDefault();
+                event.preventDefault();
+            }
         }
         //else
         //{
@@ -163,18 +165,14 @@ questiondetails.controller('QuestionDetailsController', function ($scope, $locat
         };
 
         if ($rootScope.isLoggedIn) {
-
-           
-
-          
-            TeacherService.addAnswer(answerToAdd)
+            TeacherService.addAnswer($scope.answerToAdd)
                        .success(function (ans) {
                            alert("answer added");
                            $scope.answerDetailRichText = undefined;
                            //ans.UserName = $rootScope.userName;
                            //$scope.answers.push(ans);
                            getAnswers($scope.qid);
-
+                           localStorageService.remove("answerSaved");
                        }).
                        error(function (error) {
                            alert("error in adding");
@@ -300,6 +298,13 @@ questiondetails.controller('QuestionDetailsController', function ($scope, $locat
 
     $scope.htmlToPlaintext = function htmlToPlaintext(text) {
         return String(text).replace(/<[^>]+>/gm, '');
+    };
+
+    $scope.smsWarning = function smsWarning(text) {
+        if (text.length > 10)
+            return true;
+        else
+            return false;
     };
 
     $scope.showComments = 0;

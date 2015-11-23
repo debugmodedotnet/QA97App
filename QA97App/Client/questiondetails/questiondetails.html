@@ -12,7 +12,7 @@
                 <h2>
                    {{question.Title}}
                 </h2>
-                <a class="question-report" href="">{{question.UserName}}</a>
+                <a class="question-report" href="#/Profile/{{question.UserId}}">{{question.UserName}}</a>
                 <!--<div class="question-type-main"><i i_color="#FFF" class="social_icon-twitter"></i></div>-->
                 <div class="question-inner">
                     <div class="clearfix"></div>
@@ -24,8 +24,8 @@
                     <div class="question-details">
                         <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
                      </div>
-                    <span class="question-category"><a href="#"><i class="icon-folder-close"></i>{{question.SubjectName}}</a></span>
-                    <span class="question-category"><a href="#"><i class="icon-folder-close"></i>{{question.ClassName}}</a></span>
+                    <span class="question-category"><a href="#/QuestionsBySubject/{{question.SubjectId}}"><i class="icon-folder-close"></i>{{question.SubjectName}}</a></span>
+                    <span class="question-category"><a href="#/QuestionsByGrade/{{question.ClassId}}"><i class="icon-folder-close"></i>{{question.ClassName}}</a></span>
                     <span class="question-comment"><a href="#"><i class="icon-comment"></i>{{question.NumberOfAnswers}} Answers</a></span>
                     <span class="question-date"><i class="icon-time"></i>{{question.CreatedDate| date:"MMM d, y 'at' h:mma"}}</span>                    
                     <span class="single-question-vote-result">{{question.Score}} votes</span>
@@ -55,7 +55,7 @@
                             <div class="avatar"><img alt="" src="http://placehold.it/60x60/FFF/444"></div>
                             <div class="comment-text">
                                 <div class="author clearfix">
-                                    <div class="comment-author"><a href="">{{q.UserName}}</a></div>
+                                    <div class="comment-author"><a href="#/Profile/{{q.UserId}}">{{q.UserName}}</a></div>
 
                                     <div class="comment-vote">
                                         <ul class="question-vote">
@@ -88,7 +88,8 @@
                 <div class="boxedtitle page-title"><h2>Your Answer</h2>
                 </div>
 
-                <div id="respond-textarea">
+                <div id="respond-textarea" >
+                    <p ng-show="question.ClassName == 'SMS Question'"><span class="alert alert-warning" ng-show="smsWarning(htmlToPlaintext(answerDetailRichText))">This answer if for a SMS question, try to finish your answer in less than 100 characters.</span></p>
                     <div text-angular ng-model="answerDetailRichText"></div>
                 </div>
                 <p class="form-submit">

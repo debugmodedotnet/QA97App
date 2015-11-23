@@ -5,8 +5,10 @@
         <img src="{{imageUrl}}" class="img-thumbnail col-lg-offset-1" width="200">
         <p class="text-center">
             {{profile.FullName}}<br />
-            <span ng-click="upload()" class="btn-link">Change Pic</span><br />
-            <span class="btn-link" ng-click="showpassworddiv()">Change Password</span>
+            <p  ng-show="paramUserName == loggedInData.userName">
+                <span ng-click="upload()" class="btn-link">Change Pic</span><br />
+                <span class="btn-link" ng-click="showpassworddiv()">Change Password</span>
+            </p>
         </p>
 
         <div class="row">

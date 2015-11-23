@@ -135,11 +135,12 @@ MyApp.controller('MenuController', function ($scope, $location, $rootScope, $mod
 
 
     $scope.userLogOut = function () {
-
+        
         // $scope.isUserLoggedIn = false;
         $rootScope.isLoggedIn = false;
         $rootScope.userName = undefined;
         localStorageService.remove("loggedInUser");
+        $location.path(window.location);
 
     }
 

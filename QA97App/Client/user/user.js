@@ -7,12 +7,22 @@ askquestion.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'user/profile.html',
         controller: 'AddUserController'
     });
+
+    $routeProvider.when('/Profile/:id', {
+        templateUrl: 'user/profile.html',
+        controller: 'AddUserController'
+    });
 }]);
 
-userdetails.controller('AddUserController', function ($scope, $location, $rootScope, TeacherService,Upload, localStorageService) {
+userdetails.controller('AddUserController', function ($scope, $location, $routeParams, $rootScope, TeacherService, Upload, localStorageService) {
 
-    $rootScope.bodystyle = 'bodywithoutimage';
     $scope.loggedInData = angular.fromJson(localStorageService.get("loggedInUser"));
+    if ($routeParams.id == undefined)
+        $scope.paramUserName = $scope.loggedInData.userName;
+    else
+        $scope.paramUserName = $routeParams.id;
+    $rootScope.bodystyle = 'bodywithoutimage';
+    
     $scope.basicInfo = 1;
     getUserProfile();
     $scope.showpassworddivflag = false;
@@ -92,7 +102,7 @@ var inputImg = document.createElement('input');
                                 if (fileAllowed == 1) { //validating image files only
                                     $scope.imageUrl = "../../Content/images/loading.gif";
                                     Upload.upload({
-                                        url: 'http://localhost:8458/api/ImageUpload',
+                                        url: 'http://qa97service.azurewebsites.net/api/ImageUpload',
                                         file: inputImg.files[0],
                                         fields: { 'username': $scope.loggedInData.userName },
                                         method: 'POST'
@@ -112,7 +122,7 @@ var inputImg = document.createElement('input');
 
 
     function getUserImage() {
-        TeacherService.getUserImage($scope.loggedInData.userName)
+        TeacherService.getUserImage($scope.paramUserName)
         .success(function (data) {
             if (data)
                 $scope.imageUrl = data;
@@ -126,7 +136,7 @@ var inputImg = document.createElement('input');
     };
 
     function getUserProfile() {
-        TeacherService.getUserProfile($scope.loggedInData.token)
+        TeacherService.getUserProfile($scope.paramUserName)
         .success(function (data) {
                 $scope.profile = data;
         })
@@ -138,7 +148,7 @@ var inputImg = document.createElement('input');
 
 
 function getQuestionsByUser (){
-TeacherService.questionsByUser($scope.loggedInData.userName)
+    TeacherService.questionsByUser($scope.paramUserName)
 .success(function (data) {
                 $scope.questions = data;
             })
@@ -151,7 +161,7 @@ TeacherService.questionsByUser($scope.loggedInData.userName)
 
 
 function getAnswersByUser() {
-    TeacherService.answersByUser($scope.loggedInData.userName)
+    TeacherService.answersByUser($scope.paramUserName)
     .success(function (data) {
         $scope.answers = data;
     })

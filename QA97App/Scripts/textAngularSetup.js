@@ -29,21 +29,23 @@ angular.module('textAngularSetup', ['ngFileUpload'])
                                         fileAllowed = 1;
                                 }
                                 if (fileAllowed == 1) { //validating image files only
-                                    var pbar = document.getElementById('pbar'); //progress indicator
-                                    pbar.style.display = "inline";
+                                    //var pbar = document.getElementById('pbar'); //progress indicator
+                                    //pbar.style.display = "inline";
                                     Upload.upload({
-                                        url: 'http://localhost:8458/api/ImageUpload',
+                                        url: 'http://qa97service.azurewebsites.net/api/ImageUpload',
                                         file: inputImg.files[0],
                                         method: 'POST'
-                                    }).progress(function (evt) {
-                                        pbar.setAttribute('value', parseInt(100.0 * evt.loaded / evt.total).toString());
-                                    }).success(function (data) {
+                                    })
+                                        //.progress(function (evt) {
+                                        //pbar.setAttribute('value', parseInt(100.0 * evt.loaded / evt.total).toString());
+                                        //})
+                                        .success(function (data) {
                                         restoreSelection();
                                         img = "<a href='" + data['imgUrl'] + "'><img src='" + data['imgUrl'] + "' style='width:25%;'></a>";
                              
                                         document.execCommand('insertHTML', false, img);
                                         deferred.resolve();
-                                        pbar.style.display = "none";
+                                        //pbar.style.display = "none";
                                     });
                                 }
                                 else
