@@ -146,14 +146,12 @@ HTAppServiceModule.factory('TeacherService', ['$http', function ($http) {
 
 
     TeacherService.addComment = function (comment) {
-        console.log(comment);
         return $http.post(urlBase + '/Comments/', comment);
     };
 
     TeacherService.getCommentsOfQuestion = function (qid) {
         return $http.get(urlBase + '/Comments/GetCommentsbyQuestion?id=' + qid);
     };
-
 
     return TeacherService;
 }]);

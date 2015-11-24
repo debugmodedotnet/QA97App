@@ -66,6 +66,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\confirmemail\confirmemail.html" />
+    <Content Include="Client\confirmemail\confirmemail.js" />
     <Content Include="Content\angular-ui-switch.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
