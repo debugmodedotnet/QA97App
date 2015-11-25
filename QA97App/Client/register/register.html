@@ -1,88 +1,87 @@
-﻿<div class="container">
+﻿<br />
+<br />
 
-    
-           
-    <div class="loginBox signupBox">
-        <div class="block">
+<section class="container main-content">
+    <div class="login">
 
-            <h1>Join QA97</h1>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="page-content">
+                    <h2>Join QA97</h2>
+                    <div class="form-style form-style-3">
+                        <form id="user-regn" name="adduser" novalidate>
+                            <div class="form-inputs clearfix">
+                                <p>
+                                    <label class="required">Username<span>*</span></label>
+                                    <input type="text" 
+                                           ng-required="true"name="name" 
+                                           ng-model="userfullName"                                           
+                                           ng-focus="clearerrormessage()">
+                                </p>
+                                <span class="help-block"
+                                      ng-show="adduser.name.$invalid && !adduser.name.$pristine">
+                                    You name is required.
+                                </span>
+                                <span class="help-block">{{errormessagename}}</span>
+                                <p>
+                                    <label class="required">E-Mail<span>*</span></label>
+                                    <input type="email"
+                                           ng-required="true"
+                                           name="email"
+                                           ng-model="useremail"                                           
+                                           ng-focus="clearerrormessage()"
+                                           >
+                                </p>
 
-            <form id="user-regn" name="adduser" novalidate>
-                <!-- NAME -->
-                <div class="row">
-                    <input type="text"
-                           ng-required="true"
-                           name="name"
-                           ng-model="userfullName"
-                           class="input"
-                           ng-focus="clearerrormessage()"
-                           placeholder="Full Name">
-                    <span class="help-block"
-                          ng-show="adduser.name.$invalid && !adduser.name.$pristine">
-                        You name is required.
-                    </span>
-                    <span class="help-block">{{errormessagename}}</span>
-                    <!--<span class="help-block">{{errorMessageEmail}}<a class="btn-link" ng-show="emialloginlinkflag" href="/Login"> Login here</a> </span>-->
+                                <span class="help-block"
+                                      ng-show="adduser.email.$invalid && !adduser.email.$pristine">
+                                    Enter valid Email
+                                </span>
+                                <span class="help-block">{{errorMessageEmail}}<a class="btn-link" ng-show="emialloginlinkflag" href="/Login"> Login here</a> </span>
+
+                                <p>
+                                    <label class="required">Password at least 6 characters<span>*</span></label>
+                                  
+                                    <input type="password"
+                                           ng-required="true"
+                                           ng-model="userpassword"
+                                           name="password"
+                                           ng-minlength="6"
+                                           value=""
+                                           ng-focus="clearerrormessage()"
+                                     />
+                                </p>
+                                <span class="help-block"
+                                      ng-show="adduser.password.$invalid && !adduser.password.$pristine">
+                                    Password should be atleast six character long
+                                </span>
+                                <span class="help-block">{{errormessagepassword}}</span>
+                                <!--<p>
+                                    <label class="required">Confirm Password<span>*</span></label>
+                                    <input type="password" value="">
+                                </p>-->
+                            </div>
+                            <p class="form-submit">
+                                <input type="submit" ng-click="AddUser()" value="Signup" class="button color small submit">
+                            </p>
+                        </form>
+                    </div>
                 </div>
-                <div class="row">
-                    <input type="email"
-                           ng-required="true"
-                           name="email"
-                           ng-model="useremail"
-                           class="input"
-                           ng-focus="clearerrormessage()"
-                           placeholder="Email">
-                    <span class="help-block"
-                          ng-show="adduser.email.$invalid && !adduser.email.$pristine">
-                        Enter valid Email
-                    </span>
-                    <span class="help-block">{{errorMessageEmail}}<a class="btn-link" ng-show="emialloginlinkflag" href="/Login"> Login here</a> </span>
-                </div>
-                <div class="row">
-                    <input type="password"
-                           ng-required="true"
-                           ng-model="userpassword"
-                           name="password"
-                           ng-minlength="6"
-                           ng-focus="clearerrormessage()"
-                           class="input"
-                           placeholder="Password atleast 6 character">
-                    <span class="help-block"
-                          ng-show="adduser.password.$invalid && !adduser.password.$pristine">
-                        Password should be atleast six character long
-                    </span>
-                    <span class="help-block">{{errormessagepassword}}</span>
-                </div>
-                <div ng-show="flagregisteruser" class="alert alert-danger fade in">
-                    <!--<a href="#" class="close" data-dismiss="alert">&times;</a>-->
-                    <strong>Ooops!</strong> A problem has been occurred adding you as User.
-                </div>
-                <div class="row">
-                    <button class="button" type="submit"
-                            ng-click="AddUser()">
-                        Register
-                    </button>
-                </div>
-            </form>
-        </div>
-
-            <div class="socialLogin clearfix">
-
-                <label class="label">Or Login with</label>
-                <ul>
-                    <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a class="google" href="#"><i class="icon-google"></i></a></li>
-                </ul>
-
-
             </div>
 
+            <div class="col-md-5">
+                <div class="page-content">
+                    <h2>Already a Member?</h2>
+                    <p>QA 97 is great rus laoreet consequa. Vivamus vulputate posuere nisl quis consequat.</p>
+                    <a class="button large color signup" href="#login">Login here</a>
+                </div>
+            </div>
+        </div>
 
-    
-            
     </div>
+</section>
 
-         
-       
-    </div>
+
+
+
+

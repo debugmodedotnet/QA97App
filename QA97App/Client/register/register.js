@@ -31,6 +31,7 @@ register.controller('RegisterUserController', function ($scope,$rootScope, $loca
 
          
         if ($scope.adduser.$valid) {
+            
             var userToAdd = {
                 Email: $scope.useremail,
                 Password: $scope.userpassword,
