@@ -153,6 +153,14 @@ HTAppServiceModule.factory('TeacherService', ['$http', function ($http) {
         return $http.get(urlBase + '/Comments/GetCommentsbyQuestion?id=' + qid);
     };
 
+    TeacherService.ForgetPassword = function (userName) {
+        return $http.get(urlBase + '/Account/GenerateForgetPasswordToken?userName=' + userName);
+    };
+
+    TeacherService.ResetPassword = function (userid, token, password) {
+        return $http.get(urlBase + '/Account/ResetPassword?userId=' + userid + '&token=' + token + '&newPassword=' + password);
+    };
+
     return TeacherService;
 }]);
 

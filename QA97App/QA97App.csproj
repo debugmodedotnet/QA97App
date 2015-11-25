@@ -68,6 +68,8 @@
   <ItemGroup>
     <Content Include="Client\confirmemail\confirmemail.html" />
     <Content Include="Client\confirmemail\confirmemail.js" />
+    <Content Include="Client\resetpassword\resetpassword.html" />
+    <Content Include="Client\resetpassword\resetpassword.js" />
     <Content Include="Content\angular-ui-switch.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
