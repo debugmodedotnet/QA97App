@@ -599,6 +599,8 @@
     <Content Include="images\demo.jpg" />
     <Content Include="images\demo.png" />
     <Content Include="images\favicon.png" />
+    <Content Include="images\home.gif" />
+    <Content Include="images\home2.gif" />
     <Content Include="images\homeBG.png" />
     <Content Include="images\icons.png" />
     <Content Include="images\image.png" />

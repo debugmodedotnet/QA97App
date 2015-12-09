@@ -242,9 +242,9 @@ askquestion.controller('QA97LoginAlertController', function ($scope, $modalInsta
     $scope.ok = function () {
 
        
-        alert("Hi");
+        //alert("Hi");
         $rootScope.redirectsourceview = '/askquestion'
-        alert($rootScope.redirectsourceview);
+        //alert($rootScope.redirectsourceview);
         $location.path('/login');
         $modalInstance.dismiss('cancel');
     };

@@ -62,15 +62,15 @@ MyApp.controller('HomeController', function ($scope, $location, $rootScope, Teac
         
         if ($scope.selectedaction.id === "0") {
             $location.path('/askquestion');
-            alert("ask question");
+            //alert("ask question");
         }
         if ($scope.selectedaction.id === "1") {
             $location.path('/questions');
-            alert("select question");
+            //alert("select question");
         }
         if ($scope.selectedaction.id === "2") {
 
-            alert("coming soon");
+           // alert("coming soon");
         }
 
         
@@ -79,7 +79,7 @@ MyApp.controller('HomeController', function ($scope, $location, $rootScope, Teac
    
     // Load questions second div 
 
-
+    $scope.isLoading = true;
     $scope.pageno = 1;
     $scope.pagesize = 5;
     $scope.gid = -1;
@@ -87,8 +87,10 @@ MyApp.controller('HomeController', function ($scope, $location, $rootScope, Teac
     $scope.questions;
     loadQuestions($scope.pageno, $scope.pagesize, $scope.gid, $scope.sid);
     function loadQuestions(pageno, pagesize, gid, sid) {
+        $scope.isLoading = true;
         TeacherService.listQuestions(pageno, pagesize, gid, sid)
-          .success(function (questions) {            
+          .success(function (questions) {
+              $scope.isLoading = false;
               console.log(questions)
               $scope.questions = questions;
 
@@ -96,6 +98,7 @@ MyApp.controller('HomeController', function ($scope, $location, $rootScope, Teac
 
           })
           .error(function (error) {
+              $scope.isLoading = false;
               $scope.status = 'Unable to load  data: ' + error.message;
 
           });
@@ -121,7 +124,7 @@ MyApp.controller('MenuController', function ($scope, $location, $rootScope, $mod
 
  
 
-    $scope.usercss = 'skins';
+    $scope.usercss = 'blue';
 
     $scope.selectTheme = function(theme)
     {

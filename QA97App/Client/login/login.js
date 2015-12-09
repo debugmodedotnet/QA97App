@@ -24,7 +24,7 @@ login.controller('LoginController', function ($scope, $rootScope, $location, Tea
     }
 
     $scope.ValidateUser = function () {     
-        alert("user");
+        //alert("user");
         var userToLogin= {
             Password: $scope.userpassword,
             grant_type:'password',

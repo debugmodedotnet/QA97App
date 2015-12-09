@@ -2,32 +2,50 @@
     <div class="container clearfix">
         <div class="box_icon box_warp box_no_border box_no_background" box_border="transparent" box_background="transparent" box_color="#FFF">
             <div class="row">
-                <div class="col-md-12">
-                    <h2>Welcome to QA97</h2>
-                    <p>A platform to connect students, experts and teachers.</p>
-                    <div class="clearfix"></div>
-                    <a class="color button dark_button  medium" href="#">Know More</a>
-                    <a class="color button dark_button medium" href="#">Join Now</a>
-                    <div class="clearfix"></div>
-                    <form class="form-style form-style-2">
-                        <p>
-                            <input type="text" id="question_title" value="Ask any question and you be sure find your answer ?" onfocus="if(this.value=='Ask any question and you be sure find your answer ?')this.value='';" onblur="if(this.value=='')this.value='Ask any question and you be sure find your answer ?';">
-                            <i class="icon-pencil"></i>
-                            <span ng-show="{{$root.userName === undefined}}" class="color button small publish-question" ng-click="navigatetoaskquestion()">Login to Ask Now</span>
-                            <span ng-hide="{{$root.userName === undefined}}" class="color button small publish-question" ng-click="navigatetoaskquestion()">Ask Now</span>
+                <div class="col-md-12" id="shubham">
+                    <div class="col-md-7" style="background-color:rgba(0, 0, 0, 0.1);border-radius: 25px;">
+                        <h2>Welcome to QA97</h2>
+                        <p>Expert answers to questions and instant help with homework, just a click away</p>
+                        <div class="clearfix"></div>
+                        <form class="form-style form-style-2">
+                            <p>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                                <span ng-show="{{$root.userName === undefined}}" class="color button small publish-question" ng-click="navigatetoaskquestion()">Login to Ask Now</span>
+                                <span ng-hide="{{$root.userName === undefined}}" class="color button small publish-question" ng-click="navigatetoaskquestion()">Ask Now</span>
 
-                        </p>
-                    </form>
-             
-                        
-                   
-                   
+                            </p>
+                        </form>
+                    </div>
                 </div>
+
             </div>
       
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="text-center col-md-3">
+                <i class="fa fa-rocket fa-4x"></i><br />
+                Ask question viw SMS - send question to 92-20-59-2205
+        </div>
+        <div class="text-center col-md-3">
+            <i class="fa fa-weixin fa-4x"></i><br />
+            Get Expert help over video chat
+        </div>
+        <div class="text-center col-md-3">
+            <i class="fa fa-youtube-play fa-4x"></i>
+            <br />Video answers of complex topics
+        </div>
+
+        <div class="text-center col-md-3">
+            <i class="fa fa-file-text-o fa-4x"></i>
+            <br />Get help in Homework instantly
+        </div>
+    </div>
+</div>
+
+<br /><br />
 
 <section class="container main-content">
     <div class="row">
@@ -39,101 +57,106 @@
                     <li class="tab"><h2>Recent Questions</h2></li>
                 </ul>
                 <div class="tab-inner-warp">
-                    <!--<div class="tab-inner">
-                        <article class="question question-type-normal">
-                            <h2>
-                                <a href="single_question.html">This is my first Question</a>
-                            </h2>
-                            <a class="question-report" href="#">Physics</a>
-                           
-                            <div class="question-author">
-                                <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
-                            </div>
-                            <div class="question-inner">
-                                <div class="clearfix"></div>
-                                <p class="question-desc">Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur vitae velit in neque dictum blandit.</p>
-                                <div class="question-details">
-                                    <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
-                                   
-                                </div>
-                                <span class="question-category"><a href="#"><i class="icon-folder-close"></i>std 10</a></span>
-                                <span class="question-date"><i class="icon-time"></i>4 mins ago</span>
-                                <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
-                                <span class="question-view"><i class="icon-user"></i>70 votes</span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </article>
-                     
-                        <article class="question question-type-normal">
-                            <h2>
-                                <a href="single_question.html">This is my second Question</a>
-                            </h2>
-                            <a class="question-report" href="#">Physics</a>
-                            
-                            <div class="question-author">
-                                <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
-                            </div>
-                            <div class="question-inner">
-                                <div class="clearfix"></div>
-                                <p class="question-desc">Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur vitae velit in neque dictum blandit.</p>
-                                <div class="question-details">
-                                    <span class="question-answered"><i class="icon-ok"></i>in progress</span>
+                     <p ng-show="isLoading" class="text-center">
+                         <img src="../../images/loading.gif" />
+                        </p>
+                    
+                        <!--<div class="tab-inner">
+            <article class="question question-type-normal">
+                <h2>
+                    <a href="single_question.html">This is my first Question</a>
+                </h2>
+                <a class="question-report" href="#">Physics</a>
 
-                                </div>
-                                <span class="question-category"><a href="#"><i class="icon-folder-close"></i>std 10</a></span>
-                                <span class="question-date"><i class="icon-time"></i>4 mins ago</span>
-                                <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
-                                <span class="question-view"><i class="icon-user"></i>70 votes</span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </article>
-                        <div class="row">
-                            <div class="col-md-4 col-md-offset-4">
-                                <a href="#" class="load-questions"><i class="icon-refresh"></i>Show More Questions</a>
-                            </div>
-                        </div>
-                    </div>-->
-                    <div class="tab-inner">
-                        <table class="table">
-                            <tr ng-repeat="q in questions">
-                                <td>
+                <div class="question-author">
+                    <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
+                </div>
+                <div class="question-inner">
+                    <div class="clearfix"></div>
+                    <p class="question-desc">Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur vitae velit in neque dictum blandit.</p>
+                    <div class="question-details">
+                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
 
-                                    <article class="question question-type-normal">
-                                        <h2>
-                                            <a href="" ng-click="navigatetoquestiondetails(q.Id)">{{q.Title}}</a>
-                                        </h2>
-                                        <a class="question-report" href="#/QuestionsBySubject/{{q.SubjectId}}">{{q.SubjectName}}</a>
-
-                                        <div class="question-author">
-                                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="{{q.UserImage}}"></a>
-                                        </div>
-                                        <div class="question-inner">
-                                            <div class="clearfix"></div>
-                                            <p class="question-desc">{{q.DetailPlainText}}</p>
-                                            <div class="question-details">
-                                                <span class="question-answered"><i class="icon-ok"></i>in progress</span>
-
-                                            </div>
-                                            <span class="question-category"><a href="#/QuestionsByGrade/{{q.ClassId}}"><i class="icon-folder-close"></i>{{q.ClassName}}</a></span>
-                                            <span class="question-date"><i class="icon-time"></i>{{q.CreatedDate| date:"MMM d, y 'at' h:mma"}}</span>
-                                            <span class="question-comment"><a href="#"><i class="icon-comment"></i>{{q.NumberOfAnswers}} Answers</a></span>
-                                            <span class="question-view"><i class="icon-user"></i>{{q.Score}} votes</span>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </article>
-
-
-
-
-
-
-                                </td>
-                            </tr>
-                        </table>
-                        <a ng-click="navigateToBrowseQuestion()" href=""  class="load-questions"><i class="icon-refresh"></i>Show More Questions</a>
-                       
                     </div>
+                    <span class="question-category"><a href="#"><i class="icon-folder-close"></i>std 10</a></span>
+                    <span class="question-date"><i class="icon-time"></i>4 mins ago</span>
+                    <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
+                    <span class="question-view"><i class="icon-user"></i>70 votes</span>
+                    <div class="clearfix"></div>
+                </div>
+            </article>
+
+            <article class="question question-type-normal">
+                <h2>
+                    <a href="single_question.html">This is my second Question</a>
+                </h2>
+                <a class="question-report" href="#">Physics</a>
+
+                <div class="question-author">
+                    <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://yorkshirerepairs.co.uk/wp-content/uploads/2013/09/lwpi_student.jpg"></a>
+                </div>
+                <div class="question-inner">
+                    <div class="clearfix"></div>
+                    <p class="question-desc">Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur vitae velit in neque dictum blandit.</p>
+                    <div class="question-details">
+                        <span class="question-answered"><i class="icon-ok"></i>in progress</span>
+
+                    </div>
+                    <span class="question-category"><a href="#"><i class="icon-folder-close"></i>std 10</a></span>
+                    <span class="question-date"><i class="icon-time"></i>4 mins ago</span>
+                    <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
+                    <span class="question-view"><i class="icon-user"></i>70 votes</span>
+                    <div class="clearfix"></div>
+                </div>
+            </article>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <a href="#" class="load-questions"><i class="icon-refresh"></i>Show More Questions</a>
+                </div>
             </div>
+        </div>-->
+                            <div class="tab-inner">
+                                <table class="table">
+                                    <tr ng-repeat="q in questions">
+                                        <td>
+
+                                            <article class="question question-type-normal">
+                                                <h2>
+                                                    <a href="" ng-click="navigatetoquestiondetails(q.Id)">{{q.Title}}</a>
+                                                </h2>
+                                                <a class="question-report" href="#/QuestionsBySubject/{{q.SubjectId}}">{{q.SubjectName}}</a>
+
+                                                <div class="question-author">
+                                                    <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="{{q.UserImage}}"></a>
+                                                </div>
+                                                <div class="question-inner">
+                                                    <div class="clearfix"></div>
+                                                    <p class="question-desc">{{q.DetailPlainText}}</p>
+                                                    <div class="question-details">
+                                                        <span class="question-answered"><i class="icon-ok"></i>in progress</span>
+
+                                                    </div>
+                                                    <span class="question-category"><a href="#/QuestionsByGrade/{{q.ClassId}}"><i class="icon-folder-close"></i>{{q.ClassName}}</a></span>
+                                                    <span class="question-date"><i class="icon-time"></i>{{q.CreatedDate| date:"MMM d, y 'at' h:mma"}}</span>
+                                                    <span class="question-comment"><a href="#"><i class="icon-comment"></i>{{q.NumberOfAnswers}} Answers</a></span>
+                                                    <span class="question-view"><i class="icon-user"></i>{{q.Score}} votes</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </article>
+
+
+
+
+
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a ng-hide="isLoading" ng-click="navigateToBrowseQuestion()" href="" class="load-questions"><i class="icon-refresh"></i>Show More Questions</a>
+
+                            </div>
+                    
+                    </div>
         </div>
        
     </div>

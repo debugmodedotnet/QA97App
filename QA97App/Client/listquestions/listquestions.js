@@ -22,6 +22,7 @@ askquestion.config(['$routeProvider', function ($routeProvider) {
 
 listquestions.controller('ListQuestionsController', function ($scope, $location, $routeParams, $rootScope, TeacherService) {
 
+    $scope.isLoading = true;
     $scope.score;
     $scope.isLoadMoreButtonDisabled = false;
     $scope.questiontitleerrormessage;
@@ -112,8 +113,10 @@ listquestions.controller('ListQuestionsController', function ($scope, $location,
 
     loadQuestions($scope.pageno, $scope.pagesize, $scope.gid, $scope.sid);
     function loadQuestions(pageno, pagesize, gid, sid) {
+        $scope.isLoading = true;
         TeacherService.listQuestions(pageno, pagesize, gid, sid)
           .success(function (questions) {
+              $scope.isLoading = false;
               console.log(questions)
               if (questions.length == 0) {
                   alert("No More Questions!");
@@ -131,6 +134,7 @@ listquestions.controller('ListQuestionsController', function ($scope, $location,
 
           })
           .error(function (error) {
+              $scope.isLoading = false;
               $scope.status = 'Unable to load customer data: ' + error.message;
 
           });
@@ -161,39 +165,48 @@ listquestions.controller('ListQuestionsController', function ($scope, $location,
     };
 
     function getQuestionsInSubject(sid) {
+        $scope.isLoading = true;
         TeacherService.getQuestionsInSubject(sid)
             .success(function (questions) {
+                $scope.isLoading = false;
                 $scope.questions = questions;
 
 
             })
             .error(function (error) {
+                $scope.isLoading = false;
                 $scope.status = 'Unable to load Questions for a subject: ' + error.message;
 
             });
     };
 
     function getQuestionsInGrade(gid) {
+        $scope.isLoading = true;
         TeacherService.getQuestionsInGrade(gid)
             .success(function (questions) {
+                $scope.isLoading = false;
                 $scope.questions = questions;
 
 
             })
             .error(function (error) {
+                $scope.isLoading = false;
                 $scope.status = 'Unable to load Questions for a subject: ' + error.message;
 
             });
     };
 
     function getQuestions() {
+        $scope.isLoading = true;
         TeacherService.getAllQuestions()
             .success(function (questions) {
+                $scope.isLoading = false;
                 $scope.questions = questions;
 
 
             })
             .error(function (error) {
+                $scope.isLoading = false;
                 $scope.status = 'Unable to load customer data: ' + error.message;
 
             });
